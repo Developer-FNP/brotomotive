@@ -1,0 +1,19 @@
+#shop{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #121316;
+
+}
+#shead{
+    color: #fff;
+    font-size: 4vh;
+}
+#cards{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    gap: 2vw;
+    margin-top: 5vh;
+}

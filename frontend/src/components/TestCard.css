@@ -1,0 +1,111 @@
+.test-card {
+  background-color: #1b1b1f;
+  color: white;
+  border-radius: 18px;
+  padding: 24px;
+  width: 330px;
+  min-height: 360px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background 0.3s ease;
+  background-image: url(../assets/testbg.png); 
+  background-size: cover;
+  background-position: center;
+}
+
+.test-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 16px;
+}
+
+.test-card-quote {
+  width: 32px;
+  height: 32px;
+}
+
+.test-card-icon-wrap {
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease;
+}
+
+.test-card-icon {
+  font-size: 12px;
+  transform: rotate(-45deg);
+  color: white;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.test-card:hover .test-card-icon {
+  transform: rotate(0deg);
+  color: #ff2c2c;
+}
+
+.test-card:hover .test-card-icon-wrap {
+  border-color: #ff2c2c;
+}
+
+.test-card-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.test-card-author {
+  display: block;
+  font-size: 13px;
+  color: #ccc;
+  margin-top: 10px;
+}
+
+.test-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.test-card-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.test-card-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.test-card-user-details h4 {
+  font-size: 14px;
+  margin: 0;
+}
+
+.test-card-user-details span {
+  font-size: 12px;
+  color: #bbb;
+}
+
+.test-card-stars {
+  display: flex;
+  gap: 3px;
+  font-size: 14px;
+}
+
+.star {
+  color: #555;
+}
+
+.star.filled {
+  color: #f39c12;
+}

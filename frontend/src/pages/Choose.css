@@ -1,0 +1,163 @@
+.choose-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5vh 5vw;
+  background-color: #121316;
+  color: white;
+  flex-wrap: wrap;
+}
+#chmain{
+    background-color: #121316;
+}
+#ch-head{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4vh;
+}
+.choose-left {
+  flex: 1 1 35vw;
+  max-width: 35vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.choose-title {
+  font-size: 2.3vw;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 1vh;
+}
+
+.choose-subtitle {
+  font-size: 1.5vw;
+  color: #2da6dd;
+  font-weight: 500;
+  margin-bottom: 4vh;
+}
+
+.choose-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.choose-item {
+  background: #1b1b1f;
+  padding: 1vh 2vw;
+  border-radius: 0.8vw;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.choose-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8vw;
+  font-size: 1.2vw;
+  font-weight: 500;
+}
+
+.choose-icon-wrap {
+  width: 4vh;
+  height: 4vh;
+  border: 1.5px solid white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease;
+  margin-left: auto;
+}
+
+.choose-icon {
+  font-size: 1.7vh;
+  transform: rotate(-45deg);
+  color: white;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.choose-item:hover .choose-icon {
+  transform: rotate(0deg);
+  color: #D51F2A;
+}
+
+.choose-item:hover .choose-icon-wrap {
+  border-color: #D51F2A;
+}
+
+.choose-desc {
+  font-size: 0.95vw;
+  margin-top: 1vh;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.choose-item:hover .choose-desc {
+  max-height: 15vh;
+  opacity: 1;
+}
+
+.choose-item:hover .choose-text,
+.choose-item:hover .choose-arrow {
+  color: #ff2c2c;
+}
+
+.choose-item:hover .choose-arrow {
+  transform: rotate(45deg);
+}
+
+.choose-right {
+  flex: 1 1 45vw;
+  max-width: 45vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.choose-image {
+  width: 100%;
+  height: auto;
+  max-width: 40vw;
+  /* Add any layout or mask styling for split-image effect here if needed */
+}
+#chs{
+    width: 100%;
+}
+@media (max-width: 768px) {
+  .choose-container {
+    flex-direction: column;
+    padding: 5vh 5vw;
+    align-items: center;
+  }
+
+  .choose-left, .choose-right {
+    max-width: 90vw;
+    flex: 1 1 100%;
+  }
+
+  .choose-title {
+    font-size: 5vw;
+  }
+
+  .choose-subtitle {
+    font-size: 3.5vw;
+  }
+
+  .choose-header {
+    font-size: 3.5vw;
+  }
+
+  .choose-desc {
+    font-size: 3vw;
+  }
+
+  .choose-arrow {
+    font-size: 3vw;
+  }
+}

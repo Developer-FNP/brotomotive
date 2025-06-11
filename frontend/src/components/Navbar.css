@@ -1,0 +1,122 @@
+
+.nav {
+  top: 0;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.8vh;
+  padding-bottom: 0.5vh;
+background-color: #121316;  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(10px);
+  transform: translateY(-100%);
+  animation: slideDown 0.8s ease forwards;
+}
+
+/* Define the slide down animation */
+@keyframes slideDown {
+  to {
+    transform: translateY(0);
+  }
+}
+
+#menu {  gap: 4vw;
+  font-family: var(--bebas);
+  display: flex;
+  gap: 2vw;
+}
+
+.mnu {
+  position: relative;
+  text-wrap: nowrap;
+  font-size: 0.85rem;
+  font-weight: 400;
+  cursor: pointer;
+  color: #ffff; /* default color */
+  transition: color 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.mnu::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #f55353;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+#lgo{
+  width: 10vw;
+}
+.mnu:hover {
+  color: #f55353;
+}
+
+.mnu:hover::after {
+  transform: scaleX(1);
+}
+
+.call-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: #121316;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border: 2px solid #D51F2A;
+  transition: background-color 0.3s ease;
+}
+
+/* Red angle corners using pseudo-elements */
+.call-btn::before,
+.call-btn::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #D51F2A;
+  z-index: -1;
+}
+
+.call-btn::before {
+  top: 0;
+  left: 0;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+.call-btn::after {
+  bottom: 0;
+  right: 0;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.call-icon {
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .mnu{
+    font-size: 1.6vw;
+  }
+}
+@media (max-width: 491px) {
+  .nav{
+    display: none;
+  };
+}
