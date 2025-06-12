@@ -7,7 +7,8 @@ import Badges from './Badges'
 import Shop from './Shop'
 import Choose from './Choose'
 import Testimonials from './Testimonials';
-
+import Clients from './Clients';
+import Footer from '../components/Footer';
 const Home = () => {
   return (
     <div>
@@ -27,6 +28,8 @@ const Home = () => {
       <Shop />
       <Choose />
       <Testimonials />
+      <Clients />
+      <Footer />
     </div>
   )
 }
