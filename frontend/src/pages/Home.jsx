@@ -8,7 +8,7 @@ import Shop from './Shop'
 import Choose from './Choose'
 import Testimonials from './Testimonials';
 import Clients from './Clients';
-// import Footer from '../components/Footer';
+import Footer from '../components/Footer';
 const Home = () => {
   return (
     <div>
@@ -28,7 +28,7 @@ const Home = () => {
       <Choose />
       <Testimonials />
       <Clients />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   )
 }
