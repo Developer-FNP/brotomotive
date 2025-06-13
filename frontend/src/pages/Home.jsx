@@ -8,11 +8,10 @@ import Shop from './Shop'
 import Choose from './Choose'
 import Testimonials from './Testimonials';
 import Clients from './Clients';
-import Footer from '../components/Footer';
+// import Footer from '../components/Footer';
 const Home = () => {
   return (
     <div>
-      <Navbar />
       <div className="home">
         <div className="main-head">
             <h1 id="head1">Powering Your Fleet With Trusted Used</h1>
@@ -29,7 +28,7 @@ const Home = () => {
       <Choose />
       <Testimonials />
       <Clients />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }

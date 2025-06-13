@@ -1,0 +1,653 @@
+/* UsedEngine.css */
+.used-engine {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Black Han Sans', sans-serif;
+}
+
+.used-engine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(255, 0, 0, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.used-engine__content {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  gap: 2rem;
+}
+
+.used-engine__image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  bottom: 50px;
+}
+
+.used-engine__image {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.1));
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.used-engine__text-content {
+  color: white;
+  text-align: center;
+}
+
+.used-engine__title {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: #D51F2A;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.used-engine__description {
+  font-size: 0.8rem !important;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  color: #cccccc;
+  font-weight: 400;
+  max-width: 90%;
+  text-transform: uppercase;
+}
+
+.used-engine__cta-button {
+  background: linear-gradient(45deg, #D51F2A, #cc3333);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(255, 68, 68, 0.3);
+}
+
+.used-engine__cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 68, 68, 0.4);
+  background: linear-gradient(45deg, #ff5555, #dd4444);
+}
+
+.used-engine__cta-button:active {
+  transform: translateY(0);
+}
+
+.used-engine__button-icon {
+  font-size: 1.2rem;
+}
+
+.quote-btn{
+    position: relative;
+    bottom: 70px;
+    z-index: 1;
+}
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+  .used-engine {
+    padding: 1.5rem;
+  }
+  
+  .used-engine__content {
+    gap: 2rem;
+  }
+  
+  .used-engine__title {
+    font-size: 2.5rem;
+  }
+  
+  .used-engine__description {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .used-engine {
+    padding: 1rem;
+  }
+  
+  .used-engine__content {
+    gap: 1.5rem;
+  }
+  
+  .used-engine__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .used-engine__description {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+  
+  .used-engine__cta-button {
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+  }
+}
+
+.used-engine__guide {
+  background: #1a1a1a;
+  padding: 4rem 2rem;
+  min-height: 100vh;
+}
+
+.used-engine__guide-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+}
+
+.used-engine__guide-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.used-engine__guide-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.used-engine__guide-subtitle {
+  font-size: 1.2rem;
+  color: #6CB3E7;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.used-engine__guide-sections {
+  display: grid;
+  gap: 2.5rem;
+  margin-bottom: 4rem;
+}
+
+.used-engine__guide-section {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2rem;
+  border-radius: 10px;
+  border-left: 4px solid #D51F2A;
+}
+
+.used-engine__guide-section-title {
+  font-size: 1.1rem;
+  color: #D51F2A;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.used-engine__guide-section-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #cccccc;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.used-engine__guide-section-text:last-child {
+  margin-bottom: 0;
+}
+
+.used-engine__guide-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 1rem 0;
+}
+
+.used-engine__guide-list li {
+  font-size: 0.95rem;
+  color: #cccccc;
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.used-engine__guide-list li::before {
+  content: '•';
+  color: #D51F2A;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.used-engine__guide-footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: rgba(255, 68, 68, 0.1);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 68, 68, 0.2);
+}
+
+.used-engine__guide-footer-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+  line-height: 1.3;
+}
+
+.used-engine__guide-contact-btn {
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.used-engine__guide-contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 68, 68, 0.4);
+  background: linear-gradient(45deg, #ff5555, #dd4444);
+}
+
+.used-engine__guide-contact-text {
+  color: #cccccc;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.used-engine__guide-contact-phone {
+  color: #D51F2A;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.used-engine__guide-contact-phone:hover {
+  color: #ff5555;
+}
+.used-engine__maintenance {
+  background: #2a2a2a;
+  padding: 4rem 2rem;
+  min-height: 100vh;
+}
+
+.used-engine__maintenance-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: white;
+}
+
+.used-engine__maintenance-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.used-engine__maintenance-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.used-engine__maintenance-intro {
+  font-size: 1rem;
+  color: #cccccc;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  font-weight: 400;
+}
+
+.used-engine__maintenance-sections {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.used-engine__maintenance-section {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 2rem;
+  border-radius: 10px;
+  border-left: 4px solid #ff4444;
+}
+
+.used-engine__maintenance-section-title {
+  font-size: 1.1rem;
+  color: #ff4444;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.used-engine__maintenance-section-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #cccccc;
+  margin: 0;
+  font-weight: 400;
+}
+
+.used-engine__maintenance-footer {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: rgba(255, 68, 68, 0.08);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 68, 68, 0.15);
+}
+
+.used-engine__maintenance-footer-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
+  line-height: 1.3;
+}
+
+.used-engine__maintenance-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.used-engine__maintenance-contact-btn {
+  background: linear-gradient(45deg, #ff4444, #cc3333);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(255, 68, 68, 0.3);
+}
+
+.used-engine__maintenance-contact-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 68, 68, 0.4);
+  background: linear-gradient(45deg, #ff5555, #dd4444);
+}
+
+.used-engine__maintenance-contact-phone {
+  color: #ff4444;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.used-engine__maintenance-contact-phone:hover {
+  color: #ff5555;
+}
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+  .used-engine__hero {
+    padding: 1.5rem;
+  }
+  
+  .used-engine__content {
+    gap: 2rem;
+  }
+  
+  .used-engine__title {
+    font-size: 2.5rem;
+  }
+  
+  .used-engine__description {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .used-engine__guide {
+    padding: 3rem 1.5rem;
+  }
+
+  .used-engine__guide-title {
+    font-size: 2rem;
+  }
+
+  .used-engine__guide-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .used-engine__guide-sections {
+    gap: 2rem;
+  }
+
+  .used-engine__guide-section {
+    padding: 1.5rem;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .used-engine__hero {
+    padding: 1rem;
+  }
+  
+  .used-engine__content {
+    gap: 1.5rem;
+  }
+  
+  .used-engine__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .used-engine__description {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+  
+  .used-engine__cta-button {
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+  }
+
+  .used-engine__guide {
+    padding: 2rem 1rem;
+  }
+
+  .used-engine__guide-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .used-engine__guide-title {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+
+  .used-engine__guide-subtitle {
+    font-size: 1rem;
+  }
+
+  .used-engine__guide-sections {
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .used-engine__guide-section {
+    padding: 1.25rem;
+  }
+
+  .used-engine__guide-section-title {
+    font-size: 1rem;
+  }
+
+  .used-engine__guide-section-text {
+    font-size: 0.9rem;
+  }
+
+  .used-engine__guide-list li {
+    font-size: 0.9rem;
+  }
+
+  .used-engine__guide-footer {
+    padding: 2rem 1rem;
+  }
+
+  .used-engine__guide-footer-title {
+    font-size: 1.3rem;
+  }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+  .used-engine__hero {
+    padding: 0.75rem;
+  }
+  
+  .used-engine__content {
+    gap: 1.5rem;
+  }
+  
+  .used-engine__title {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+  
+  .used-engine__description {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .used-engine__cta-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .used-engine__guide {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .used-engine__guide-title {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .used-engine__guide-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .used-engine__guide-section {
+    padding: 1rem;
+  }
+
+  .used-engine__guide-section-title {
+    font-size: 0.95rem;
+  }
+
+  .used-engine__guide-section-text {
+    font-size: 0.85rem;
+  }
+
+  .used-engine__guide-list li {
+    font-size: 0.85rem;
+  }
+
+  .used-engine__guide-footer-title {
+    font-size: 1.1rem;
+  }
+
+  .used-engine__guide-contact-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 250px;
+  }
+}
+
+/* Extra Small Mobile Styles */
+@media (max-width: 320px) {
+  .used-engine__title {
+    font-size: 1.5rem;
+  }
+  
+  .used-engine__description {
+    font-size: 0.85rem;
+  }
+
+  .used-engine__guide-title {
+    font-size: 1.3rem;
+  }
+
+  .used-engine__guide-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .used-engine__guide-section-title {
+    font-size: 0.9rem;
+  }
+
+  .used-engine__guide-section-text {
+    font-size: 0.8rem;
+  }
+
+  .used-engine__guide-list li {
+    font-size: 0.8rem;
+  }
+
+  .used-engine__guide-footer-title {
+    font-size: 1rem;
+  }
+}
