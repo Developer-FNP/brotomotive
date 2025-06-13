@@ -1,0 +1,297 @@
+.truckparts {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Background overlay */
+.truckparts__background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
+    z-index: 1;
+}
+
+/* Truck silhouette */
+.truckparts__truck-silhouette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.8;
+    z-index: 2;
+    width: 100%;
+}
+
+.truckparts__truck-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Content container */
+.truckparts__content-container {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Main heading */
+.truckparts__main-heading {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #ef4444;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    letter-spacing: -0.02em;
+}
+
+/* Subheading */
+.truckparts__subheading {
+    color: #60a5fa;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Description */
+.truckparts__description {
+    color: #ffffff;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* CTA Button */
+.truckparts__cta-button {
+    background: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.truckparts__cta-button:hover {
+    background: #ef4444;
+    border-color: #ef4444;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(239, 68, 68, 0.3);
+}
+
+.truckparts__button-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.truckparts__arrow-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.truckparts__cta-button:hover .truckparts__arrow-icon {
+    transform: rotate(45deg);
+}
+
+/* Decorative elements */
+.truckparts__decorative-square-1 {
+    position: absolute;
+    top: 2.5rem;
+    left: 2.5rem;
+    width: 5rem;
+    height: 5rem;
+    border: 2px solid #ef4444;
+    transform: rotate(45deg);
+    opacity: 0.3;
+    z-index: 5;
+}
+
+.truckparts__decorative-square-2 {
+    position: absolute;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    width: 4rem;
+    height: 4rem;
+    border: 2px solid #60a5fa;
+    transform: rotate(12deg);
+    opacity: 0.3;
+    z-index: 5;
+}
+
+.truckparts__decorative-dot-1 {
+    position: absolute;
+    top: 25%;
+    right: 5rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    background: #ef4444;
+    border-radius: 50%;
+    z-index: 5;
+    animation: truckparts-pulse 2s infinite;
+}
+
+.truckparts__decorative-dot-2 {
+    position: absolute;
+    bottom: 25%;
+    left: 5rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    background: #60a5fa;
+    border-radius: 50%;
+    z-index: 5;
+    animation: truckparts-pulse 2s infinite 1s;
+}
+
+/* Gradient overlays */
+.truckparts__gradient-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 8rem;
+    background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    z-index: 8;
+}
+
+.truckparts__gradient-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8rem;
+    background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+    z-index: 8;
+}
+
+/* Animations */
+@keyframes truckparts-pulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+/* Responsive Design */
+
+/* Large screens */
+@media (min-width: 1200px) {
+    .truckparts__main-heading {
+        font-size: 5rem;
+    }
+    
+    .truckparts__subheading {
+        font-size: 1.5rem;
+    }
+    
+    .truckparts__description {
+        font-size: 1.125rem;
+    }
+}
+
+/* Medium screens */
+@media (max-width: 768px) {
+    .truckparts__content-container {
+        padding: 0 1rem;
+    }
+    
+    .truckparts__main-heading {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .truckparts__subheading {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .truckparts__description {
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+    }
+    
+    .truckparts__cta-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .truckparts__decorative-square-1,
+    .truckparts__decorative-square-2 {
+        display: none;
+    }
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+    .truckparts__main-heading {
+        font-size: 2rem;
+        line-height: 1.1;
+    }
+    
+    .truckparts__subheading {
+        font-size: 0.9rem;
+    }
+    
+    .truckparts__description {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+    
+    .truckparts__cta-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .truckparts__decorative-dot-1,
+    .truckparts__decorative-dot-2 {
+        display: none;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 320px) {
+    .truckparts__content-container {
+        padding: 0 0.5rem;
+    }
+    
+    .truckparts__main-heading {
+        font-size: 1.75rem;
+    }
+    
+    .truckparts__subheading {
+        font-size: 0.8rem;
+    }
+    
+    .truckparts__description {
+        font-size: 0.8rem;
+    }
+}

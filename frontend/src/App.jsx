@@ -4,6 +4,8 @@ import { Route, Routes } from 'react-router-dom'
 import UsedEngine from './pages/UsedEngine/UsedEngine'
 import Navbar from './components/Navbar'
 import Transmission from './pages/Transmission/Transmission'
+import Footer from './components/Footer'
+import TruckParts from './pages/TruckParts/TruckParts'
 
 const App = () => {
   return (
@@ -13,7 +15,9 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path='/engine' element={<UsedEngine />} />
         <Route path='/transmission' element={<Transmission />} />
+        <Route path='/truck-parts' element={<TruckParts />} />
       </Routes>
+    <Footer/>
     </>
   )
 }
