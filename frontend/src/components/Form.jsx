@@ -1,5 +1,5 @@
-import React from 'react';
-import './Form.css';
+import React from "react";
+import "./Form.css";
 
 const Form = () => {
   return (
@@ -15,7 +15,18 @@ const Form = () => {
 
         <div className="form-section-title">Part Details</div>
         <div className="form-row three-cols">
-          <input type="text" placeholder="Year*" required />
+          <select required>
+            <option value="">Year*</option>
+            {Array.from({ length: new Date().getFullYear() - 1979 }, (_, i) => {
+              const year = 1980 + i;
+              return (
+                <option key={year} value={year}>
+                  {year}
+                </option>
+              );
+            }).reverse()}
+          </select>
+
           <input type="text" placeholder="Make*" required />
           <input type="text" placeholder="Model*" required />
         </div>
@@ -29,7 +40,9 @@ const Form = () => {
           <input type="text" placeholder="Remarks (Optional)" />
         </div>
 
-        <button type="submit" className="submit-btn">Submit</button>
+        <button type="submit" className="submit-btn">
+          Submit
+        </button>
       </form>
     </div>
   );

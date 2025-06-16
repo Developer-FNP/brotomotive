@@ -6,7 +6,7 @@
 }
 
 .form-box {
-  background: rgba(0, 0, 0, 0.6); /* translucent black */
+  background: rgba(0, 0, 0, 0.6);
   border: 1px solid #D51F2A;
   border-radius: 10px;
   padding: 25px;
@@ -25,15 +25,28 @@
 }
 
 .form-row {
-  display: flex;
-  flex-wrap: nowrap;
+  display: grid;
   gap: 15px;
   margin-bottom: 15px;
 }
 
+.form-row.four-cols {
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+
+.form-row.three-cols {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.form-row.two-cols {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.form-row.one-col {
+  grid-template-columns: 1fr;
+}
+
 .form-row input {
-  flex: 1 1 calc(25% - 15px);
-  min-width: 180px;
   padding: 10px 14px;
   background-color: #222;
   border: none;
@@ -68,6 +81,25 @@
 .submit-btn:hover {
   background-color: #e60000;
 }
+
+.form-row select {
+  flex: 1 1 calc(25% - 15px);
+  min-width: 180px;
+  padding: 10px 14px;
+  background-color: #222;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.form-row select:focus {
+  background-color: #2a2a2a;
+  border: 1px solid #D51F2A;
+}
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

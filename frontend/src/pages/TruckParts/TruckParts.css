@@ -1,0 +1,281 @@
+.truckparts {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Background overlay */
+.truckparts__background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
+    z-index: 1;
+}
+
+/* Truck silhouette */
+.truckparts__truck-silhouette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.8;
+    z-index: 2;
+    width: 100%;
+}
+
+.truckparts__truck-silhouette img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.truckparts__truck-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Content container */
+.truckparts__content-container {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Main heading */
+.truckparts__main-heading {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ef4444;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    letter-spacing: -0.02em;
+}
+
+/* Subheading */
+.truckparts__subheading {
+    color: #6CB3E7;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Description */
+.truckparts__description {
+    color: #ffffff;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* CTA Button */
+.truckparts__cta-button {
+    background: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.truckparts__cta-button:hover {
+    background: #ef4444;
+    border-color: #ef4444;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(239, 68, 68, 0.3);
+}
+
+.truckparts__button-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.truckparts__arrow-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.truckparts__cta-button:hover .truckparts__arrow-icon {
+    transform: rotate(45deg);
+}
+
+.truckparts__info-box {
+  padding: 1px 80px ;
+  background: #000;
+  /* border: 1px solid #D51F2A; */
+  /* border-radius: 10px; */
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+.truckparts__info-section {
+  margin-bottom: 30px;
+}
+
+.truckparts__info-section h2 {
+  font-size: 20px;
+  color: #fff;
+}
+
+.truckparts__info-section h3 {
+  font-size: 16px;
+  color: #1dbfff;
+  margin: 5px 0 10px;
+}
+
+.truckparts__info-section p,
+.truckparts__info-section ul {
+  font-size: 14px;
+  color: #ddd;
+}
+
+.truckparts__info-section ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.truckparts__contact-prompt {
+  border-top: 1px solid #444;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+}
+
+.truckparts__phone-highlight {
+  color: #D51F2A;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+
+/* Large screens */
+@media (min-width: 1200px) {
+    .truckparts__main-heading {
+        font-size: 2.5rem;
+    }
+    
+    .truckparts__subheading {
+        font-size: 0.9rem;
+    }
+    
+    .truckparts__description {
+        font-size: 0.8rem;
+    }
+    .truckparts__truck-silhouette img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+}
+
+/* Medium screens */
+@media (max-width: 768px) {
+    .truckparts__content-container {
+        padding: 0 1rem;
+    }
+    
+    .truckparts__main-heading {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .truckparts__subheading {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .truckparts__description {
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+    }
+    
+    .truckparts__cta-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .truckparts__decorative-square-1,
+    .truckparts__decorative-square-2 {
+        display: none;
+    }
+}
+
+.under_parts_subheading{
+    font-weight: 400;
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+    .truckparts__main-heading {
+        font-size: 1rem;
+        line-height: 1.1;
+    }
+    
+    .truckparts__subheading {
+        font-size: 0.4rem;
+        word-wrap: break-word;
+    }
+    
+    .truckparts__description {
+        font-size: 0.8rem;
+        line-height: 1.5;
+        text-wrap: wrap;
+    }
+    
+    .truckparts__cta-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .truckparts__decorative-dot-1,
+    .truckparts__decorative-dot-2 {
+        display: none;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 320px) {
+    .truckparts__content-container {
+        padding: 0 0.5rem;
+    }
+    
+    .truckparts__main-heading {
+        font-size: 1.75rem;
+    }
+    
+    .truckparts__subheading {
+        font-size: 0.8rem;
+    }
+    
+    .truckparts__description {
+        font-size: 0.8rem;
+    }
+}
