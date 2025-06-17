@@ -7,6 +7,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        padding-top: 10vh;
         padding-bottom: 10vh;
     }
     .arrow-button {
@@ -39,24 +40,73 @@
         flex-direction: column;
         align-items: center;
         line-height: 0.01;
+        width: 100%;
     }
     #head1{
     color: #6CB3E7;
     font-weight: 500;
-    font-size: 6vh;
+    font-size: 5.5vh;
+    max-width: 90%;
+    text-align: center;
     }
     #head2{
         font-family: 'Black Han Sans', sans-serif;
         color: #D51F2A;
         font-size: 10vh;
+        text-align: center;
+
     }
     #head3{
     color: #fff;
     font-weight: 200;
     font-size: 3.5vh;
+    text-align: center;
+
     }
     #spn{
         font-weight: 400;
         font-size: 4vh;
 
+    }
+    @media (max-width: 768px) {
+            #head1{
+    font-size: 4vh;
+    text-wrap: wrap;
+    }
+    #head2{
+        font-size: 7vh;
+
+    }
+    #head3{
+    font-size: 2.5vh;
+    }
+     #spn{
+        font-size: 3vh;
+}
+    }
+    @media (max-width: 490px) {
+            #head1{
+    font-size: 1.5rem;
+    text-wrap: wrap;
+            margin: 0.5rem;
+
+    }
+    #head2{
+        font-size: 7vh;
+                margin: 0;
+
+
+    }
+    #head3{
+    font-size: 2.5vh;
+            margin: 0.5rem;
+
+
+    }
+     #spn{
+        font-size: 3vh;
+}
+.main-head{
+        line-height: 1;
+    }
     }

@@ -46,3 +46,22 @@ transform: scale(1.15);
 #bdg1{
     width: 7vw;
 }
+@media (max-width: 1024px) {
+#bdg{
+    width: 15vw;
+}
+#bdg1{
+    width: 9vw;
+}
+}
+@media (max-width: 768px) {
+#bdg{
+    width: auto;
+    height: 9vh;
+}
+#bdg1{
+    width: auto;
+    height: 12vh;
+
+}
+}

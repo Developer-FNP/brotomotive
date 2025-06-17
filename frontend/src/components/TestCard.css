@@ -3,8 +3,8 @@
   color: white;
   border-radius: 18px;
   padding: 24px;
-  width: 330px;
-  min-height: 360px;
+  width: 25vw;
+  min-height: 50vh;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -108,4 +108,23 @@
 
 .star.filled {
   color: #f39c12;
+}
+
+@media (max-width: 680px) {
+.test-card {
+  
+  padding: 24px;
+  width: 35vw;
+  min-height: 50vh;
+  
+}
+}
+@media (max-width: 425px) {
+.test-card {
+  
+  padding: 24px;
+  width: 45vw;
+  min-height: 50vh;
+  
+}
 }

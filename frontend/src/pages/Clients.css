@@ -70,5 +70,6 @@
 
   .clients-grid img {
     max-height: 7vh;
+    max-width: 20vh;
   }
 }
