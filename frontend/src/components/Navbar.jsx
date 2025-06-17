@@ -14,6 +14,11 @@ const Navbar = () => {
     setIsMenuOpen(false);
   };
 
+  const handleCallClick = () => {
+    // Replace with your actual phone number
+    window.location.href = 'tel:+1234567890';
+  };
+
   return (
     <>
       <div className="nav">
@@ -35,7 +40,7 @@ const Navbar = () => {
         <div className="nav-right">
           <button className="call-btn desktop-call-btn">
             <FaPhoneAlt className="call-icon" />
-            Call Us
+            +1234567890
           </button>
 
           <button 
@@ -62,7 +67,7 @@ const Navbar = () => {
       </div>
 
       {/* Floating Call Button */}
-      <button className="floating-call-btn">
+       <button className="floating-call-btn" onClick={handleCallClick}>
         <FaPhoneAlt className="floating-call-icon" />
         <span className="floating-call-text">Call Us</span>
       </button>
@@ -81,7 +86,7 @@ const Navbar = () => {
         
         <button className="call-btn" onClick={closeMenu}>
           <FaPhoneAlt className="call-icon" />
-          Call Us
+          +1234567890
         </button>
       </div>
     </>
