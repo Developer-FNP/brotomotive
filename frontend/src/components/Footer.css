@@ -1,58 +1,232 @@
-#foot{
+#foot {
   display: flex;
   flex-direction: row;
-  padding: 20vh 24vh ;
+  padding: 20vh 24vh;
   gap: 2vh;
-  background-color: #161616   ;
+  background-color: #161616;
   color: #fff;
-  ;}
-  #foot-hd{
-    font-size: 2.6vh;
-    font-weight: 500;
-  }
-  #broto-hd{
-    font-family: 'Black Han Sans', sans-serif;
-        color: #fff;
-        font-size: 7vh;
-  }
-  .subtxt{
-    font-size: 2.3vh;
-    font-weight: 200;
-  }
-  .bx{
-    border: 1px solid #8f8f8f;
-    border-radius: 30px;
-    padding: 5vh 2vw;
-    background: linear-gradient(180deg, #2a2a2a 0%, #0e0e0e 100%);
+}
 
-  }
-  #foot-left{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-              }
-   #foot-right{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 2vh;  }
+#foot-hd {
+  font-size: 2.6vh;
+  font-weight: 500;
+}
 
-    #scl{
-      color: #fff;
-      font-size: 5vh;
-    }
-    #socials{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      
-    }
-    #address{
-      line-height: 1;
-    }
-    .bx1{
-      border: 1px solid #8f8f8f;
-    border-radius: 25px;
-    padding: 4vh 2vw;
-    background: linear-gradient(180deg, #2a2a2a 0%, #0e0e0e 100%);
-    }
+#broto-hd {
+  font-family: "Black Han Sans", sans-serif;
+  color: #fff;
+  font-size: 7vh;
+}
+
+.subtxt {
+  font-size: 2.3vh;
+  font-weight: 200;
+}
+
+.bx {
+  border: 1px solid #8f8f8f;
+  border-radius: 30px;
+  padding: 5vh 2vw;
+  background: linear-gradient(180deg, #2a2a2a 0%, #0e0e0e 100%);
+  margin-top: 10px;
+}
+
+#foot-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#foot-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2vh;
+}
+
+#scl {
+  color: #fff;
+  font-size: 5vh;
+}
+
+#socials {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#address {
+  line-height: 1;
+}
+
+.bx1 {
+  border: 1px solid #8f8f8f;
+  border-radius: 25px;
+  padding: 4vh 2vw;
+  background: linear-gradient(180deg, #2a2a2a 0%, #0e0e0e 100%);
+}
+
+#foot-links ul li a {
+  color: #fff !important;
+  text-decoration: none;
+}
+
+.footer_copyright {
+  background-color: #161616;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 1024px) {
+  #foot {
+    flex-direction: column;
+    padding: 10vh 5vw;
+    align-items: center;
+  }
+
+  #foot-left,
+  #foot-right {
+    width: 100%;
+    align-items: center;
+  }
+
+  .bx {
+    width: 90%;
+    margin: 1vh 0;
+    text-align: center;
+  }
+
+  #foot-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #foot-links li a {
+    display: inline-block;
+    padding: 1vh 1vw;
+    text-wrap: nowrap;
+  }
+
+  #foot-ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2vh 1vw;
+    justify-items: center;
+    align-items: center;
+  }
+
+  #socials {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2vw;
+  }
+
+  .bx1 {
+    padding: 3vh 4vw;
+    margin: 1vh;
+  }
+
+  #broto-hd {
+    font-size: 5vh;
+  }
+
+  .subtxt {
+    font-size: 2vh;
+  }
+
+  #foot-hd {
+    font-size: 2.2vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .bx1 {
+    font-size: 4vh;
+    padding: 2vh 3vw;
+  }
+
+  #broto-hd {
+    font-size: 4.5vh;
+  }
+
+  .subtxt {
+    font-size: 1.9vh;
+  }
+
+  #foot-hd {
+    font-size: 2vh;
+  }
+
+  #foot {
+    padding: 8vh 4vw;
+  }
+
+  #address h3 {
+    font-size: 1.8vh;
+  }
+
+  #foot-ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1.5vh 0.5vw;
+    justify-items: center;
+    align-items: center;
+  }
+
+  #foot-links li a {
+    padding: 0.8vh 0.5vw;
+    font-size: 1.6vh;
+  }
+}
+
+@media (max-width: 480px) {
+  #foot {
+    padding: 6vh 3vw;
+  }
+
+  #broto-hd {
+    font-size: 4vh;
+  }
+
+  .subtxt {
+    font-size: 1.7vh;
+  }
+
+  #foot-hd {
+    font-size: 1.8vh;
+  }
+
+  .bx1 {
+    font-size: 3.5vh;
+    padding: 2vh 2vw;
+  }
+
+  #address h3 {
+    font-size: 1.5vh;
+  }
+
+  .footer_copyright {
+    font-size: 1rem;
+  }
+
+  #foot-ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1vh 0.2vw;
+    justify-items: center;
+    align-items: center;
+  }
+
+  #foot-links li a {
+    padding: 0.5vh 0.2vw;
+    font-size: 1.4vh;
+    text-align: center;
+  }
+}

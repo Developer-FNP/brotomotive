@@ -1,6 +1,8 @@
-
 .nav {
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   padding-right: 1rem;
   padding-left: 1rem;
   display: flex;
@@ -8,23 +10,29 @@
   align-items: center;
   padding-top: 0.8vh;
   padding-bottom: 0.5vh;
-background-color: #121316;  backdrop-filter: blur(5px);
+  background-color: #121316;
+  backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(10px);
   transform: translateY(-100%);
   animation: slideDown 0.8s ease forwards;
+  z-index: 1000;
 }
 
-/* Define the slide down animation */
 @keyframes slideDown {
   to {
     transform: translateY(0);
   }
 }
 
-#menu {  gap: 4vw;
-  font-family: var(--bebas);
-  display: flex;
+#lgo {
+  width: 10vw;
+  min-width: 120px;
+}
+
+#menu {
   gap: 2vw;
+  font-family: "Poppins", sans-serif;
+  display: flex;
 }
 
 .mnu {
@@ -33,16 +41,14 @@ background-color: #121316;  backdrop-filter: blur(5px);
   font-size: 0.85rem;
   font-weight: 400;
   cursor: pointer;
-  color: #ffff; /* default color */
+  color: #ffff;
   transition: color 0.3s ease;
-  cursor: pointer;
   text-decoration: none;
-    font-family: 'Poppins', sans-serif;
-
+  font-family: "Poppins", sans-serif;
 }
 
 .mnu::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -3px;
   left: 0;
@@ -53,9 +59,7 @@ background-color: #121316;  backdrop-filter: blur(5px);
   transform-origin: left;
   transition: transform 0.3s ease;
 }
-#lgo{
-  width: 10vw;
-}
+
 .mnu:hover {
   color: #f55353;
 }
@@ -71,7 +75,7 @@ background-color: #121316;  backdrop-filter: blur(5px);
   padding: 10px 20px;
   background-color: #121316;
   color: white;
-  border: none;
+  border: 2px solid #d51f2a;
   border-radius: 15px;
   font-size: 16px;
   font-weight: 500;
@@ -79,18 +83,16 @@ background-color: #121316;  backdrop-filter: blur(5px);
   position: relative;
   overflow: hidden;
   z-index: 1;
-  border: 2px solid #D51F2A;
   transition: background-color 0.3s ease;
 }
 
-/* Red angle corners using pseudo-elements */
 .call-btn::before,
 .call-btn::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 20px;
   height: 20px;
-  background-color: #D51F2A;
+  background-color: #d51f2a;
   z-index: -1;
 }
 
@@ -110,13 +112,280 @@ background-color: #121316;  backdrop-filter: blur(5px);
   font-size: 14px;
 }
 
-@media (max-width: 768px) {
-  .mnu{
-    font-size: 1.6vw;
+/* Animated Hamburger Styles */
+.hamburger-menu {
+  display: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.hamburger-menu:hover {
+  background-color: rgba(245, 83, 83, 0.1);
+}
+
+.hamburger-menu svg {
+  width: 40px;
+  height: 40px;
+}
+
+.line {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 6;
+  transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+              stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line1 {
+  stroke-dasharray: 60 207;
+  stroke-width: 6;
+}
+
+.line2 {
+  stroke-dasharray: 60 60;
+  stroke-width: 6;
+}
+
+.line3 {
+  stroke-dasharray: 60 207;
+  stroke-width: 6;
+}
+
+.hamburger-menu.opened .line1 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+  stroke-width: 6;
+}
+
+.hamburger-menu.opened .line2 {
+  stroke-dasharray: 1 60;
+  stroke-dashoffset: -30;
+  stroke-width: 6;
+}
+
+.hamburger-menu.opened .line3 {
+  stroke-dasharray: 90 207;
+  stroke-dashoffset: -134;
+  stroke-width: 6;
+}
+
+.hamburger-menu:hover .line {
+  stroke: #f55353;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(18, 19, 22, 0.98);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  z-index: 999;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
+.mobile-menu.open {
+  transform: translateY(0);
+}
+
+.mobile-menu .mnu {
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 0.5rem 0;
+}
+
+.mobile-menu .call-btn {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  padding: 12px 24px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #f55353;
+}
+
+.floating-call-btn {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  display: none; /* Hidden on desktop */
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #d51f2a, #f55353);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(213, 31, 42, 0.4);
+  transition: box-shadow 0.3s ease;
+  z-index: 1001;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.floating-call-btn:hover {
+  box-shadow: 0 6px 25px rgba(213, 31, 42, 0.6);
+}
+
+.floating-call-icon {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.floating-call-text {
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+
+
+/* Tablet and mobile breakpoints */
+@media (max-width: 1024px) {
+  #menu {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: block;
+  }
+
+  .desktop-call-btn {
+    display: none;
+  }
+
+  .floating-call-btn {
+    display: flex;
   }
 }
+
+/* Tablet specific adjustments */
+@media (max-width: 1024px) and (min-width: 769px) {
+  #lgo {
+    width: 12vw;
+    min-width: 120px;
+  }
+
+  .mobile-menu .mnu {
+    font-size: 1.8rem;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hamburger-menu svg {
+    width: 45px;
+    height: 45px;
+  }
+
+  .floating-call-btn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+  
+  .floating-call-icon {
+    font-size: 18px;
+  }
+
+}
+
+/* Mobile specific styles */
+@media (max-width: 768px) {
+  .mnu {
+    font-size: 1.6vw;
+  }
+
+  #lgo {
+    width: 15vw;
+    min-width: 100px;
+  }
+  
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .mobile-menu .mnu {
+    font-size: 1.5rem;
+  }
+
+  .hamburger-menu svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .floating-call-btn {
+    left: 15px;
+    bottom: 15px;
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+  
+  .floating-call-icon {
+    font-size: 16px;
+  }
+}
+
 @media (max-width: 491px) {
-  .nav{
-    display: none;
-  };
+  .nav {
+    display: flex;
+  }
+
+  #lgo {
+    width: 20vw;
+    min-width: 80px;
+  }
+
+  .hamburger-menu svg {
+    width: 35px;
+    height: 35px;
+  }
+
+  .nav-right {
+    gap: 0.3rem;
+  }
+
+  .floating-call-btn {
+    left: 12px;
+    bottom: 12px;
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+  
+  .floating-call-icon {
+    font-size: 14px;
+  }
+
 }
