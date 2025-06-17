@@ -9,6 +9,12 @@ import {
 } from "react-icons/fa6";
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
   return (
     <>
       <div id="foot">
@@ -27,28 +33,28 @@ const Footer = () => {
             <h3 id="foot-hd">CHECK OUT THESE LINKS BEFORE YOU GO</h3>
             <ul id="foot-ul">
               <li className="subtxt">
-                <Link to="">Home</Link>
+                <Link to="/" onClick={scrollToTop}>Home</Link>
               </li>
               <li className="subtxt">
-                <Link to="">Used Engines</Link>
+                <Link to="/engine" onClick={scrollToTop}>Used Engines</Link>
               </li>
               <li className="subtxt">
-                <Link to="">Used Transmissions</Link>
+                <Link to="/transmission" onClick={scrollToTop}>Used Transmissions</Link>
               </li>
               <li className="subtxt">
-                <Link to="">Truck Parts</Link>
+                <Link to="/truck-parts" onClick={scrollToTop}>Truck Parts</Link>
               </li>
               <li className="subtxt">
-                <Link to="">About Us</Link>
+                <Link to="/about" onClick={scrollToTop}>About Us</Link>
               </li>
               <li className="subtxt">
-                <Link to="">Contact Us</Link>
+                <Link to="/contact" onClick={scrollToTop}>Contact Us</Link>
               </li>
               <li className="subtxt">
-                <Link to="">Privacy Policy</Link>
+                <Link to="" onClick={scrollToTop}>Privacy Policy</Link>
               </li>
               <li className="subtxt">
-                <Link to="">Warranty Policy</Link>
+                <Link to="" onClick={scrollToTop}>Warranty Policy</Link>
               </li>
             </ul>
           </div>
@@ -83,7 +89,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <h3>© COPYRIGHT 2025, ALL RIGHTS RESERVED</h3>
+      <h3 className="footer_copyright">© COPYRIGHT 2025, ALL RIGHTS RESERVED</h3>
     </>
   );
 };

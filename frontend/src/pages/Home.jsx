@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import './Home.css'
 import Navbar from '../components/Navbar'
 import { FaArrowRight } from 'react-icons/fa';
@@ -9,6 +9,15 @@ import Choose from './Choose'
 import Testimonials from './Testimonials';
 import Clients from './Clients';
 const Home = () => {
+  const chooseRef = useRef(null);
+
+  const scrollToChoose = () => {
+    chooseRef.current?.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
+  };
+
   return (
     <div>
       <div className="home">
@@ -17,13 +26,16 @@ const Home = () => {
             <h1 id='head2'>HEAVY TRUCK PARTS</h1>
             <h1 id='head3'>Fueled by <span id='spn'>EXPERTISE. </span>Driven by <span id='spn'>VALUES.</span> Powered by <span id='spn'>TRUST.</span></h1>
         </div>
-        <div className="arrow-button">
+        <div className="arrow-button" onClick={scrollToChoose}>
       <FaArrowRight className="arrow-icon" />
     </div>
     <Form />
       </div>
       <Badges />
       <Shop />
+      <div ref={chooseRef}>
+        <Choose/>
+      </div>
       <Choose />
       <Testimonials />
       <Clients />

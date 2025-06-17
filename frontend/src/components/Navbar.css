@@ -230,97 +230,43 @@
   color: #f55353;
 }
 
-/* Floating Call Button */
 .floating-call-btn {
   position: fixed;
   left: 20px;
   bottom: 20px;
-  width: 60px;
-  height: 60px;
+  display: none; /* Hidden on desktop */
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
   background: linear-gradient(135deg, #d51f2a, #f55353);
   border: none;
-  border-radius: 50%;
+  border-radius: 25px;
   color: white;
   cursor: pointer;
-  display: none;
-  align-items: center;
-  justify-content: center;
   box-shadow: 0 4px 20px rgba(213, 31, 42, 0.4);
-  transition: all 0.3s ease;
+  transition: box-shadow 0.3s ease;
   z-index: 1001;
-  overflow: hidden;
-  padding: 0;
-  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
 }
 
 .floating-call-btn:hover {
-  width: 140px;
-  border-radius: 30px;
-  transform: translateY(-2px);
   box-shadow: 0 6px 25px rgba(213, 31, 42, 0.6);
 }
 
 .floating-call-icon {
-  font-size: 18px;
-  color: #ffffff !important;
-  transition: all 0.3s ease;
-  z-index: 10;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 1;
-  margin: 0;
-  padding: 0;
+  font-size: 16px;
+  color: #ffffff;
 }
 
 .floating-call-text {
-  font-size: 14px;
-  font-weight: 500;
-  margin-left: 10px;
-  opacity: 0;
-  transform: translateX(-10px);
-  transition: all 0.3s ease;
+  color: #ffffff;
   white-space: nowrap;
-  color: #ffffff !important;
-  z-index: 10;
-  position: relative;
 }
 
-.floating-call-btn:hover .floating-call-text {
-  opacity: 1;
-  transform: translateX(0);
-}
 
-.floating-call-btn:hover .floating-call-icon {
-  transform: scale(0.9);
-}
-
-.floating-call-btn::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  transition: all 0.3s ease;
-  transform: translate(-50%, -50%);
-}
-
-.floating-call-btn:active::before {
-  width: 100%;
-  height: 100%;
-}
-
-.desktop-call-btn {
-  display: flex;
-}
-
-.mobile-call-btn {
-  display: none;
-}
 
 /* Tablet and mobile breakpoints */
 @media (max-width: 1024px) {
@@ -364,22 +310,14 @@
   }
 
   .floating-call-btn {
-    width: 65px;
-    height: 65px;
+    padding: 12px 20px;
+    font-size: 14px;
   }
-
-  .floating-call-btn:hover {
-    width: 150px;
-  }
-
+  
   .floating-call-icon {
-    font-size: 22px;
-    color: white;
+    font-size: 18px;
   }
 
-  .floating-call-text {
-    font-size: 15px;
-  }
 }
 
 /* Mobile specific styles */
@@ -409,23 +347,14 @@
   }
 
   .floating-call-btn {
-    width: 55px;
-    height: 55px;
     left: 15px;
     bottom: 15px;
-  }
-
-  .floating-call-btn:hover {
-    width: 130px;
-  }
-
-  .floating-call-icon {
-    font-size: 18px;
-    color: white;
-  }
-
-  .floating-call-text {
+    padding: 10px 16px;
     font-size: 13px;
+  }
+  
+  .floating-call-icon {
+    font-size: 16px;
   }
 }
 
@@ -449,22 +378,14 @@
   }
 
   .floating-call-btn {
-    width: 50px;
-    height: 50px;
     left: 12px;
     bottom: 12px;
-  }
-
-  .floating-call-btn:hover {
-    width: 120px;
-  }
-
-  .floating-call-icon {
-    font-size: 16px;
-    color: white;
-  }
-
-  .floating-call-text {
+    padding: 8px 14px;
     font-size: 12px;
   }
+  
+  .floating-call-icon {
+    font-size: 14px;
+  }
+
 }
