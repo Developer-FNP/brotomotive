@@ -56,6 +56,7 @@
 
 /* Main heading */
 .truckparts__main-heading {
+    margin-top: 7rem;
     font-size: 2.5rem;
     font-weight: bold;
     color: #ef4444;

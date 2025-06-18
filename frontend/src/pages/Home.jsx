@@ -8,6 +8,7 @@ import Shop from './Shop'
 import Choose from './Choose'
 import Testimonials from './Testimonials';
 import Clients from './Clients';
+import Contact from './Contact';
 const Home = () => {
   const chooseRef = useRef(null);
 
@@ -36,9 +37,9 @@ const Home = () => {
       <div ref={chooseRef}>
         <Choose/>
       </div>
-      <Choose />
       <Testimonials />
       <Clients />
+      <Contact />
     </div>
   )
 }
