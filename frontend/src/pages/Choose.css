@@ -124,7 +124,6 @@
   width: 100%;
   height: auto;
   max-width: 40vw;
-  /* Add any layout or mask styling for split-image effect here if needed */
 }
 #chs{
     width: 100%;
@@ -159,5 +158,8 @@
 
   .choose-arrow {
     font-size: 3vw;
+  }
+  .choose-image {
+    max-width: 80vw;
   }
 }

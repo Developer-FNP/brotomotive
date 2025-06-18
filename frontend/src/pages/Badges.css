@@ -1,67 +1,87 @@
-#badge{
-            
-            background-color: #121316;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+#badge {
+  background-color: #121316;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-#b1{
-    margin-top: 20vh;
-    color: #fff;
-    font-weight: 400;
-    font-size: 5.5vh;
+#b1 {
+  margin-top: 20vh;
+  color: #fff;
+  font-weight: 400;
+  font-size: 5.5vh;
 }
-#hdngs{
-    line-height: 0.2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#hdngs {
+  line-height: 0.2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-#b2{
-    color: #6CB3E7;
-    font-weight: 600;
-    font-size: 4vh;
+#b2 {
+  color: #6cb3e7;
+  font-weight: 600;
+  font-size: 4vh;
 }
-#badges{
-    margin-top: 5vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20vh;
-    gap: 3vh;
+#badges {
+  margin-top: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20vh;
+  gap: 3vh;
 }
-#badges1{
-    display: flex;
-    align-items: center;
-    gap: 2vw;
-    
+#badges1 {
+  display: flex;
+  align-items: center;
+  gap: 2vw;
 }
-#bdg:hover, #bdg1:hover{
-transform: scale(1.15);
+#bdg:hover,
+#bdg1:hover {
+  transform: scale(1.15);
 }
-#bdg{
-    width: 10vw;
+#bdg {
+  width: 10vw;
 }
-#bdg1{
-    width: 7vw;
+#bdg1 {
+  width: 7vw;
 }
 @media (max-width: 1024px) {
-#bdg{
+  #bdg {
     width: 15vw;
-}
-#bdg1{
+  }
+  #bdg1 {
     width: 9vw;
-}
+  }
 }
 @media (max-width: 768px) {
-#bdg{
+  #bdg {
     width: auto;
     height: 9vh;
-}
-#bdg1{
+  }
+  #bdg1 {
     width: auto;
     height: 12vh;
+  }
 
+  #hdngs {
+    width: 100%;
+    font-size: 125px !important; 
+  }
+
+  @media (max-width: 768px) {
+  #bdg {
+    width: auto;
+    height: 9vh;
+  }
+  #bdg1 {
+    width: auto;
+    height: 12vh;
+  }
+
+  #hdngs #b1{
+    text-align: center;
+    line-height: 1;
+    margin-top: 10px;
+  }
 }
 }
