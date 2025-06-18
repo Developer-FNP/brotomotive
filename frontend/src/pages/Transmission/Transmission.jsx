@@ -2,6 +2,7 @@ import React from 'react';
 import './Transmission.css';
 import transmissionImage from '../../assets/Component 2.png'
 import { FaArrowRight } from 'react-icons/fa';
+import Form from '../../components/Form';
 
 const Transmission = () => {
   return (
@@ -25,12 +26,7 @@ const Transmission = () => {
                 className='used-engine__image'
               />
             </div>
-            <button id="secondary-shop-btn" className="shop-btn-clean quote-btn">
-                <span className="shop-btn-icon-wrap">
-                  <FaArrowRight className="shop-btn-icon" />
-                </span>
-                Get a Quote
-              </button>
+            <Form />
           </div>
           </div>
     
