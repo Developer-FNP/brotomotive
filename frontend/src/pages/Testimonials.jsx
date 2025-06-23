@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import './Testimonials.css';
 import TestCard from '../components/TestCard';
-import commonAvatar from '../assets/Avatar.svg';
+import commonAvatar from '../assets/avatar.svg';
 
 const testimonialData = [
   {
