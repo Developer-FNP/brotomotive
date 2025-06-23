@@ -8,8 +8,8 @@ const app = express();
 
 // ✅ CORS configuration
 const allowedOrigins = [
-  'https://brotomotive.com',
-  'https://www.brotomotive.com',
+  'https://brotomotiveparts.com',
+  'https://www.brotomotiveparts.com',
   'http://localhost:5004',
   'http://localhost',
   'http://localhost:5173',
