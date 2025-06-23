@@ -85,3 +85,24 @@
   }
 }
 }
+
+  @media (max-width: 490px) {
+   #bdg {
+    width: auto;
+    height: 7vh;
+  }
+  #bdg1 {
+    width: auto;
+    height: 10vh;
+  }
+  #b2{
+    line-height: 1;
+    text-align: center;
+  }
+  #hdngs #b1{
+    text-align: center;
+    line-height: 1;
+    margin-top: 10px;
+  }
+}
+

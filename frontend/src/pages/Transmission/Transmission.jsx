@@ -1,5 +1,4 @@
 import React from 'react';
-import './Transmission.css';
 import transmissionImage from '../../assets/Component 2.png'
 import { FaArrowRight } from 'react-icons/fa';
 import Form from '../../components/Form';
@@ -111,7 +110,7 @@ const Transmission = () => {
                 <h2 className='used-engine__guide-footer-title'>
                   Not sure which transmission fits your truck? We’ll help you figure it out.
                 </h2>
-                  <p className='used-engine__guide-contact'>Request a Free Transmission Match  <a href="tel:+1234-5678-90" className='used-engine__guide-contact-phone'>Call +1234-5678-90</a></p>
+                  <p className='used-engine__guide-contact'>Request a Free Transmission Match&nbsp;  <a href="tel:(833) 374-5813" className='used-engine__guide-contact-phone'>Call (833) 374-5813</a></p>
               </div>
             </div>
           </div>
@@ -208,7 +207,7 @@ const Transmission = () => {
                 <h2 className='used-engine__maintenance-footer-title'>
                   Not sure which transmission fits your truck? We’ll help you figure it out.
                 </h2>
-                <p className='used-engine__guide-contact'>Request a Free Transmission Match <a href="tel:+1234-5678-90" className='used-engine__guide-contact-phone'>Call +1234-5678-90</a></p>
+                <p className='used-engine__guide-contact'>Request a Free Transmission Match  <a href="tel:(833) 374-5813" className='used-engine__guide-contact-phone'>Call (833) 374-5813</a></p>
               </div>
             </div>
           </div>

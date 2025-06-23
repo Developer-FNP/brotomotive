@@ -84,6 +84,7 @@
   overflow: hidden;
   z-index: 1;
   transition: background-color 0.3s ease;
+  text-decoration: none;
 }
 
 .call-btn::before,
@@ -364,8 +365,8 @@
   }
 
   #lgo {
-    width: 20vw;
-    min-width: 80px;
+    width: 30vw;
+    min-width: 100px;
   }
 
   .hamburger-menu svg {

@@ -40,7 +40,6 @@
   justify-content: center;
   align-items: center;
   z-index: 1;
-  bottom: 50px;
 }
 
 .used-engine__image {
@@ -81,7 +80,7 @@
   margin-bottom: 2.5rem;
   color: #cccccc;
   font-weight: 400;
-  max-width: 90%;
+  max-width: 100%;
   text-transform: uppercase;
 }
 
@@ -125,6 +124,9 @@
 
 /* Tablet Styles */
 @media (max-width: 1024px) {
+  .used-engine__title {
+  margin-top: 7rem;
+}
   .used-engine {
     padding: 1.5rem;
   }
@@ -558,8 +560,9 @@
   .used-engine__content {
     gap: 1.5rem;
   }
-  
+ 
   .used-engine__title {
+    margin-top: 10vh;
     font-size: 1.75rem;
     line-height: 1.2;
   }

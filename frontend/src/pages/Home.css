@@ -81,13 +81,14 @@
   }
 }
 @media (max-width: 490px) {
+
   #head1 {
     font-size: 1.5rem;
     text-wrap: wrap;
     margin: 0.5rem;
   }
   #head2 {
-    font-size: 7vh;
+    font-size: 6vh;
     margin: 0;
   }
   #head3 {
