@@ -10,8 +10,10 @@ const app = express();
 const allowedOrigins = [
   'https://brotomotive.com',
   'https://www.brotomotive.com',
+  'http://localhost:5004',
   'http://localhost',
-  'http://localhost:5173'
+  'http://localhost:5173',
+  'http://localhost:5175',
 ];
 
 app.use(cors({
@@ -48,7 +50,7 @@ app.use((err, req, res, next) => {
 });
 
 // ✅ Start Server
-const PORT = process.env.PORT || 5002; // You can change this if needed
+const PORT = process.env.PORT || 5004; // You can change this if needed
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚗 Brotomotive backend started on port ${PORT}`);
 });
