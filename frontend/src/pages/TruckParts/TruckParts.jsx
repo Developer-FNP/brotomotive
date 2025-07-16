@@ -106,7 +106,7 @@ const TruckParts = () => {
                     <div className="truckparts__contact-prompt">
                         <p>NEED HELP FINDING THE RIGHT TRUCK PART? OUR TEAM IS READY TO GUIDE YOU.</p>
                         <p><strong>Request a Free Part Match</strong> <br />or<br /> 
-                        <span className="truckparts__phone-highlight">Call (833) 374 5813</span></p>
+                        <span className="truckparts__phone-highlight">Call +18333745813</span></p>
                     </div>
                 </section>
         </>
