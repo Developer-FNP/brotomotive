@@ -51,10 +51,10 @@ const Footer = () => {
                 <Link to="/contact" onClick={scrollToTop}>Contact Us</Link>
               </li>
               <li className="subtxt">
-                <Link to="" onClick={scrollToTop}>Privacy Policy</Link>
+                <Link to="/privacy" onClick={scrollToTop}>Privacy Policy</Link>
               </li>
               <li className="subtxt">
-                <Link to="" onClick={scrollToTop}>Warranty Policy</Link>
+                <Link to="/terms" onClick={scrollToTop}>Terms and Conditions</Link>
               </li>
             </ul>
           </div>

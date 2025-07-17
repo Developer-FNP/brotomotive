@@ -8,6 +8,9 @@ import Footer from './components/Footer'
 import TruckParts from './pages/TruckParts/TruckParts'
 import Contact from './pages/Contact'
 import About from './pages/About/About'
+import Privacy from './pages/Privacy'
+import Terms from './pages/Terms'
+
 
 const App = () => {
   return (
@@ -20,6 +23,8 @@ const App = () => {
         <Route path='/truck-parts' element={<TruckParts />} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path='/privacy' element={<Privacy />} />
+        <Route path='/terms' element={<Terms />} />
       </Routes>
     <Footer/>
     </>

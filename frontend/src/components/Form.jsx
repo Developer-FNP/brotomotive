@@ -295,6 +295,7 @@ const parts = [
 
 const Form = () => {
   const [truckData, setTruckData] = useState({});
+  const [smsConsent, setSmsConsent] = useState(false); // SMS consent state
   const [formData, setFormData] = useState({
     leadLabel: "BROTOMOTIVE",
     fullName: "",
@@ -392,6 +393,7 @@ const Form = () => {
         browser: window.navigator.userAgent,
         remarks: ""
       });
+      setSmsConsent(false); // Reset checkbox
     } catch (err) {
       console.error("Submission failed:", err);
       alert("Something went wrong. Please try again.");
@@ -544,6 +546,20 @@ const Form = () => {
             value={formData.remarks}
             onChange={handleChange}
           />
+        </div>
+
+        {/* SMS Consent Checkbox */}
+        <div className="checkbox-container">
+          <input
+            type="checkbox"
+            id="smsConsent"
+            checked={smsConsent}
+            onChange={(e) => setSmsConsent(e.target.checked)}
+            className="consent-checkbox"
+          />
+          <label htmlFor="smsConsent" className="consent-label">
+            By providing your phone number, you agree to receive a text message from Brotomotive. Message and Data rates may apply, Message frequency varies. To stop receiving messages, reply 'STOP' at any time. For more information, reply 'HELP'. <a href="/privacy">Privacy Policy</a> & <a href="/terms">Terms & Conditions</a>
+          </label>
         </div>
 
         <input type="hidden" name="browser" value={formData.browser} />

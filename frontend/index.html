@@ -2,17 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-<!-- public/index.html -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Commissioner:wght@100..900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- ✅ Preconnect for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- ✅ Preload + load font stylesheet -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Commissioner:wght@100..900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Commissioner:wght@100..900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+    <!-- ✅ Favicon -->
     <link rel="icon" type="image/svg+xml" href="/tab-logo.png" />
+    
+    <!-- ✅ SEO -->
+    <meta name="keywords" content="truck parts, heavy truck parts, truck engines, truck transmissions, commercial truck parts, used truck parts, truck engine rebuild, truck transmission repair, heavy duty truck parts, commercial vehicle parts">
+    <meta name="description" content="Premium used truck engines and transmissions for heavy-duty commercial vehicles. Certified truck parts, reliable performance, fast shipping, and guaranteed quality from Brotomotive. Trusted by fleet owners nationwide.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Brotomotive Parts</title>
+    <title>Premium Heavy Truck Parts, Engines & Transmissions - Brotomotive</title>
+
+    <!-- 🚀 Move gtag to footer and defer them -->
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- 🚀 Lazy-load Google Ads gtag: AW-17323205887 -->
+    <script>
+      setTimeout(() => {
+        const gtagScript = document.createElement('script');
+        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17323205887';
+        gtagScript.async = true;
+        document.head.appendChild(gtagScript);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'AW-17323205887');
+      }, 3000);
+    </script>
+
   </body>
 </html>
