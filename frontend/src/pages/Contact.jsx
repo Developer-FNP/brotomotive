@@ -24,14 +24,14 @@ const Contact = () => {
           <ContactCard
             icon={phoneIcon}
             title="Phone"
-            content="123456789"
+            content="+18333745813"
             type="phone"
           />
 
           <ContactCard
             icon={emailIcon}
             title="Email"
-            content="support@fnpautoparts.com"
+            content="info@brotomotiveparts.com"
             type="email"
           />
 
