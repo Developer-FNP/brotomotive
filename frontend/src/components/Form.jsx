@@ -549,7 +549,7 @@ const Form = () => {
         </div>
 
         {/* SMS Consent Checkbox */}
-        <div className="checkbox-container">
+        {/* <div className="checkbox-container">
           <input
             type="checkbox"
             id="smsConsent"
@@ -560,7 +560,7 @@ const Form = () => {
           <label htmlFor="smsConsent" className="consent-label">
             By providing your phone number, you agree to receive a text message from Brotomotive. Message and Data rates may apply, Message frequency varies. To stop receiving messages, reply 'STOP' at any time. For more information, reply 'HELP'. <a href="/privacy">Privacy Policy</a> & <a href="/terms">Terms & Conditions</a>
           </label>
-        </div>
+        </div> */}
 
         <input type="hidden" name="browser" value={formData.browser} />
         <button type="submit" className="submit-btn">Submit</button>
