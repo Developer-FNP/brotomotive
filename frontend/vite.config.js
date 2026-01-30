@@ -10,7 +10,6 @@ export default defineConfig({
   },
   preview: {
     host: '0.0.0.0',
-    port: import.meta.env.PORT ? parseInt(import.meta.env.PORT) : 4173,
-    strictPort: false,
+    port: 4173,
   }
 })
