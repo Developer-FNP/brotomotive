@@ -11,16 +11,21 @@ const router = express.Router();
 
 // ✅ Zoho Email transporter setup
 const transporter = nodemailer.createTransport({
-  host: "smtp.zoho.in",           // Zoho SMTP server
-  port: 587,                        // TLS port
-  secure: false,                    // Use TLS (not SSL)
+  host: "smtp.zoho.in",              // Use .in instead of .com
+  port: 465,                          // Use 465 (SSL) instead of 587 (TLS)
+  secure: true,                       // Set to true for SSL
   auth: {
-    user: process.env.EMAIL_USER,   // Your Zoho email (e.g., noreply@brotomotiveparts.com)
-    pass: process.env.EMAIL_PASS,   // Your Zoho email password or app password
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
   },
-  tls: {
-    rejectUnauthorized: false,      // Accept self-signed certificates (if needed)
-  },
+  pool: true,                         // Connection pooling
+  maxConnections: 5,
+  maxMessages: 10,
+  rateDelta: 1000,
+  rateLimit: 5,
+  connectionTimeout: 10000,           // 10 second timeout
+  greetingTimeout: 10000,
+  socketTimeout: 15000,
 });
 
 // Test transporter on startup
