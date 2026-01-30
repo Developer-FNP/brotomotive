@@ -295,7 +295,7 @@ const parts = [
 
 const Form = () => {
   const [truckData, setTruckData] = useState({});
-  const [smsConsent, setSmsConsent] = useState(false); // SMS consent state
+  const [_smsConsent, setSmsConsent] = useState(false); // SMS consent state
   const [formData, setFormData] = useState({
     leadLabel: "BROTOMOTIVE",
     fullName: "",
@@ -313,7 +313,7 @@ const Form = () => {
 
   const [showMakeDropdown, setShowMakeDropdown] = useState(false);
   const [showModelDropdown, setShowModelDropdown] = useState(false);
-  const [errors, setErrors] = useState({});
+  const [_errors, setErrors] = useState({});
   const currentYear = new Date().getFullYear();
 
   useEffect(() => {
@@ -354,7 +354,8 @@ const Form = () => {
     setErrors({});
 
     try {
-      const response = await fetch("/api/form", {
+      const apiUrl = import.meta.env.VITE_API_URL || "";
+      const response = await fetch(`${apiUrl}/form`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

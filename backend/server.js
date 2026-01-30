@@ -6,18 +6,29 @@ const formRoutes = require("./src/routes/formRoutes");
 
 const app = express();
 
-// ✅ CORS configuration
-const allowedOrigins = [
-  'https://brotomotiveparts.com',
-  'https://www.brotomotiveparts.com',
-  'http://localhost:5004',
-  'http://localhost',
-  'http://localhost:5173',
-  'http://localhost:5175',
-];
+// ✅ CORS configuration from environment variables
+const allowedOrigins = process.env.ALLOWED_ORIGINS 
+  ? process.env.ALLOWED_ORIGINS.split(',').map(origin => origin.trim())
+  : [
+      'http://localhost:5173',
+      'http://localhost:5175',
+      'http://localhost:5004',
+    ];
+
+console.log('🔒 Allowed CORS Origins:', allowedOrigins);
 
 app.use(cors({
-  origin: allowedOrigins,
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like mobile apps, Postman, or curl)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      console.warn(`❌ CORS blocked origin: ${origin}`);
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'OPTIONS'],
   credentials: true,
 }));
@@ -38,19 +49,30 @@ app.get("/", (req, res) => {
 });
 
 // ✅ Routes
-app.use("/api/form", formRoutes);
+app.use("/form", formRoutes);
+
+// ✅ 404 Handler
+app.use((req, res) => {
+  res.status(404).json({
+    error: 'Not Found',
+    message: `Route ${req.method} ${req.url} not found`,
+  });
+});
 
 // ✅ Global Error Handler
 app.use((err, req, res, next) => {
   console.error('[UNHANDLED ERROR]', err.stack);
   res.status(500).json({
     error: 'Internal Server Error',
-    message: 'Something went wrong',
+    message: process.env.NODE_ENV === 'production' 
+      ? 'Something went wrong' 
+      : err.message,
   });
 });
 
 // ✅ Start Server
-const PORT = process.env.PORT || 5004; // You can change this if needed
+const PORT = process.env.PORT || 5004;
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`🚗 Brotomotive backend started on port ${PORT}`);
+  console.log(`📡 Environment: ${process.env.NODE_ENV || 'development'}`);
 });

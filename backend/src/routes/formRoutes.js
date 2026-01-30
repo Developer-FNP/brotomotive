@@ -9,13 +9,27 @@ const { validateForm } = require("../validations/formValidation");
 
 const router = express.Router();
 
-// Email transporter setup
+// ✅ Zoho Email transporter setup
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.zoho.in",           // Zoho SMTP server
+  port: 587,                        // TLS port
+  secure: false,                    // Use TLS (not SSL)
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
+    user: process.env.EMAIL_USER,   // Your Zoho email (e.g., noreply@brotomotiveparts.com)
+    pass: process.env.EMAIL_PASS,   // Your Zoho email password or app password
   },
+  tls: {
+    rejectUnauthorized: false,      // Accept self-signed certificates (if needed)
+  },
+});
+
+// Test transporter on startup
+transporter.verify((error, success) => {
+  if (error) {
+    console.error("❌ Email transporter error:", error);
+  } else {
+    console.log("✅ Email transporter is ready to send messages");
+  }
 });
 
 // GET route to verify API is alive
@@ -43,6 +57,7 @@ router.post("/", validateForm, async (req, res) => {
     part,
     vin,
     browser,
+    remarks,
   } = req.body;
 
   const mailOptions = {
@@ -65,18 +80,21 @@ router.post("/", validateForm, async (req, res) => {
 
   try {
     const info = await transporter.sendMail(mailOptions);
-    console.log("Email sent:", info.response);
+    console.log("✅ Email sent successfully:", info.messageId);
     res.status(200).json({
       success: true,
       message: "Form submitted and email sent successfully!",
     });
   } catch (error) {
-    console.error("Error sending email:", {
+    console.error("❌ Error sending email:", {
       message: error.message,
       response: error.response,
       code: error.code,
     });
-    res.status(500).json({ error: "Failed to send email" });
+    res.status(500).json({ 
+      error: "Failed to send email",
+      details: error.message 
+    });
   }
 });
 
