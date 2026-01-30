@@ -11,5 +11,12 @@ export default defineConfig({
   preview: {
     host: '0.0.0.0',
     port: 4173,
+    strictPort: false,
+    allowedHosts: [
+      '.railway.app',
+      'brotomotiveparts.com',
+      'www.brotomotiveparts.com',
+      'brotomotive-production-b5e7.up.railway.app'
+    ]
   }
 })
