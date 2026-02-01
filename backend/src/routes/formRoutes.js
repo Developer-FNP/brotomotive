@@ -36,34 +36,18 @@ router.post("/", validateForm, async (req, res) => {
 
   // Prepare email HTML
   // Prepare simple email content
-  const emailText = `
-New Lead Submission - Brotomotive
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-CUSTOMER INFORMATION
-Full Name: ${fullName}
-Phone: ${phone}
-Email: ${email}
-Zip Code: ${zip}
-
-VEHICLE DETAILS
-Year: ${year}
-Make: ${make}
-Model: ${model}
-VIN: ${vin || "Not Provided"}
-
-REQUESTED PART
-Part: ${part}
-
-${remarks ? `REMARKS\n${remarks}\n` : ""}
-ADDITIONAL INFO
-Lead Source: ${leadLabel}
-Browser: ${browser || "Not Provided"}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Submitted: ${new Date().toLocaleString("en-US", { timeZone: "America/New_York" })} EST
-`.trim();
+  const emailText =
+    `Lead Source: ${leadLabel}\n` +
+    `Full Name: ${fullName}\n` +
+    `Phone: ${phone}\n` +
+    `Email: ${email}\n` +
+    `Zip Code: ${zip}\n` +
+    `Year: ${year}\n` +
+    `Make: ${make}\n` +
+    `Model: ${model}\n` +
+    `Part: ${part}\n` +
+    `VIN: ${vin || "Not Provided"}\n` +
+    `Browser: ${browser || "Not Provided"}\n`;
 
   // Prepare mail options
   const mailOptions = {
