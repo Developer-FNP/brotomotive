@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Contact.css";
 import ContactCard from "../components/ContactCard";
-import contactHeroImage from "../assets/contact-hero.png";
 import phoneIcon from "../assets/phone-icon.png";
 import locationIcon from "../assets/location-icon.png";
 import emailIcon from "../assets/email-icon.png";

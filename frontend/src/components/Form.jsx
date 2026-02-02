@@ -295,7 +295,7 @@ const parts = [
 
 const Form = () => {
   const [truckData, setTruckData] = useState({});
-  const [_smsConsent, setSmsConsent] = useState(false); // SMS consent state
+  const [_smsConsent, setSmsConsent] = useState(false);
   const [formData, setFormData] = useState({
     leadLabel: "BROTOMOTIVE",
     fullName: "",
@@ -313,7 +313,9 @@ const Form = () => {
 
   const [showMakeDropdown, setShowMakeDropdown] = useState(false);
   const [showModelDropdown, setShowModelDropdown] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [_errors, setErrors] = useState({});
+  const [notifications, setNotifications] = useState([]);
   const currentYear = new Date().getFullYear();
 
   useEffect(() => {
@@ -322,6 +324,31 @@ const Form = () => {
       .then((data) => setTruckData(data))
       .catch((err) => console.error("Error loading truck data:", err));
   }, []);
+
+  // Function to show notification
+  const showNotification = (message, type = 'info', duration = 3000) => {
+    const id = Date.now();
+    const newNotification = {
+      id,
+      message,
+      type,
+      duration
+    };
+    
+    setNotifications(prev => [...prev, newNotification]);
+    
+    // Auto remove after duration
+    setTimeout(() => {
+      removeNotification(id);
+    }, duration);
+    
+    return id;
+  };
+
+  // Function to remove notification
+  const removeNotification = (id) => {
+    setNotifications(prev => prev.filter(notification => notification.id !== id));
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -352,6 +379,7 @@ const Form = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors({});
+    setIsSubmitting(true);
 
     try {
       const apiUrl = import.meta.env.VITE_API_URL || "";
@@ -365,21 +393,25 @@ const Form = () => {
 
       if (!response.ok) {
         const errorMessages = {};
-        let alertMessage = "Please fix the following:\n\n";
+        let errorMessage = "Please fix the following:\n\n";
 
         if (result.errors) {
           result.errors.forEach((error) => {
             errorMessages[error.param] = error.msg;
-            alertMessage += `- ${error.msg}\n`;
+            errorMessage += `• ${error.msg}\n`;
           });
         }
 
         setErrors(errorMessages);
-        alert(alertMessage);
+        // Show error notification
+        showNotification(errorMessage, 'error', 5000);
         return;
       }
 
-      alert("✅ Form submitted successfully!");
+      // Show success notification
+      showNotification("✅ Form submitted successfully!", 'success');
+
+      // Reset form
       setFormData({
         leadLabel: "BROTOMOTIVE",
         fullName: "",
@@ -394,179 +426,223 @@ const Form = () => {
         browser: window.navigator.userAgent,
         remarks: ""
       });
-      setSmsConsent(false); // Reset checkbox
+      setSmsConsent(false);
+      
     } catch (err) {
       console.error("Submission failed:", err);
-      alert("Something went wrong. Please try again.");
+      // Show error notification
+      showNotification("❌ Something went wrong. Please try again.", 'error');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
+  // Test function to verify notifications
+  // const testNotification = () => {
+  //   showNotification("This is a test notification! 🎉", 'info');
+  // };
+
   return (
-    <div className="form-wrapper">
-      <form className="form-box" onSubmit={handleSubmit}>
-        <div className="form-section-title">Contact Info</div>
-        <div className="form-row four-cols">
-          <input
-            type="text"
-            name="fullName"
-            placeholder="Full Name*"
-            value={formData.fullName}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Phone No.*"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email*"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-          <input
-            type="text"
-            name="zip"
-            placeholder="Zip Code*"
-            value={formData.zip}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div className="form-section-title">Part Details</div>
-        <div className="form-row three-cols">
-          <select name="year" value={formData.year} onChange={handleChange} required>
-            <option value="">Year*</option>
-            {Array.from({ length: currentYear - 1979 }, (_, i) => {
-              const year = currentYear - i;
-              return (
-                <option key={year} value={year}>
-                  {year}
-                </option>
-              );
-            })}
-          </select>
-
-          <div className="input-wrapper">
-            <input
-              id="make-input"
-              type="text"
-              name="make"
-              placeholder="Make*"
-              value={formData.make}
-              onChange={(e) => {
-                handleChange(e);
-                setShowMakeDropdown(true);
-              }}
-              onFocus={() => setShowMakeDropdown(true)}
-              onBlur={() => setTimeout(() => setShowMakeDropdown(false), 200)}
-              required
-            />
-            {showMakeDropdown && (
-              <div className="dropdown">
-                {filteredMakes.map((make) => (
-                  <div
-                    key={make}
-                    onMouseDown={() => handleSelectMake(make)}
-                    className="dropdown-item"
-                  >
-                    {make}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <div className="input-wrapper">
-            <input
-              id="make-input"
-              type="text"
-              name="model"
-              placeholder="Model*"
-              value={formData.model}
-              disabled={!formData.make}
-              onChange={(e) => {
-                handleChange(e);
-                setShowModelDropdown(true);
-              }}
-              onFocus={() => formData.make && setShowModelDropdown(true)}
-              onBlur={() => setTimeout(() => setShowModelDropdown(false), 200)}
-              required
-            />
-            {showModelDropdown && (
-              <div className="dropdown">
-                {filteredModels.map((model) => (
-                  <div
-                    key={model}
-                    onMouseDown={() => handleSelectModel(model)}
-                    className="dropdown-item"
-                  >
-                    {model}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
-
-        <div className="form-row two-cols">
-          <select
-            name="part"
-            value={formData.part}
-            onChange={handleChange}
-            required
+    <>
+      {/* Custom Notification Container - Top Right Corner */}
+      <div className="notification-container">
+        {notifications.map((notification) => (
+          <div 
+            key={notification.id} 
+            className={`notification notification-${notification.type}`}
           >
-            <option value="" disabled>Choose Part*</option>
-            {parts.map((part) => (
-              <option key={part} value={part}>
-                {part}
-              </option>
-            ))}
-          </select>
-          <input
-            type="text"
-            name="vin"
-            value={formData.vin}
-            onChange={handleChange}
-            placeholder="VIN Number (Optional)"
-          />
-        </div>
+            <div className="notification-content">
+              {notification.message}
+            </div>
+            <button 
+              className="notification-close"
+              onClick={() => removeNotification(notification.id)}
+            >
+              ✕
+            </button>
+            <div className="notification-progress" style={{
+              animationDuration: `${notification.duration}ms`
+            }}></div>
+          </div>
+        ))}
+      </div>
 
-        <div className="form-row one-col">
-          <input
-            type="text"
-            name="remarks"
-            placeholder="Remarks (Optional)"
-            value={formData.remarks}
-            onChange={handleChange}
-          />
-        </div>
+      <div className="form-wrapper">
+        {/* Test button for notifications */}
+        {/* <button 
+          onClick={testNotification}
+          className="notification-test-btn"
+        >
+          Test Notification
+        </button> */}
 
-        {/* SMS Consent Checkbox */}
-        {/* <div className="checkbox-container">
-          <input
-            type="checkbox"
-            id="smsConsent"
-            checked={smsConsent}
-            onChange={(e) => setSmsConsent(e.target.checked)}
-            className="consent-checkbox"
-          />
-          <label htmlFor="smsConsent" className="consent-label">
-            By providing your phone number, you agree to receive a text message from Brotomotive. Message and Data rates may apply, Message frequency varies. To stop receiving messages, reply 'STOP' at any time. For more information, reply 'HELP'. <a href="/privacy">Privacy Policy</a> & <a href="/terms">Terms & Conditions</a>
-          </label>
-        </div> */}
+        <form className="form-box" onSubmit={handleSubmit}>
+          <div className="form-section-title">Contact Info</div>
+          <div className="form-row four-cols">
+            <input
+              type="text"
+              name="fullName"
+              placeholder="Full Name*"
+              value={formData.fullName}
+              onChange={handleChange}
+              disabled={isSubmitting}
+              required
+            />
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone No.*"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email*"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+            <input
+              type="text"
+              name="zip"
+              placeholder="Zip Code*"
+              value={formData.zip}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <input type="hidden" name="browser" value={formData.browser} />
-        <button type="submit" className="submit-btn">Submit</button>
-      </form>
-    </div>
+          <div className="form-section-title">Part Details</div>
+          <div className="form-row three-cols">
+            <select name="year" value={formData.year} onChange={handleChange} required>
+              <option value="">Year*</option>
+              {Array.from({ length: currentYear - 1979 }, (_, i) => {
+                const year = currentYear - i;
+                return (
+                  <option key={year} value={year}>
+                    {year}
+                  </option>
+                );
+              })}
+            </select>
+
+            <div className="input-wrapper">
+              <input
+                id="make-input"
+                type="text"
+                name="make"
+                placeholder="Make*"
+                value={formData.make}
+                onChange={(e) => {
+                  handleChange(e);
+                  setShowMakeDropdown(true);
+                }}
+                onFocus={() => setShowMakeDropdown(true)}
+                onBlur={() => setTimeout(() => setShowMakeDropdown(false), 200)}
+                required
+              />
+              {showMakeDropdown && (
+                <div className="dropdown">
+                  {filteredMakes.map((make) => (
+                    <div
+                      key={make}
+                      onMouseDown={() => handleSelectMake(make)}
+                      className="dropdown-item"
+                    >
+                      {make}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div className="input-wrapper">
+              <input
+                id="make-input"
+                type="text"
+                name="model"
+                placeholder="Model*"
+                value={formData.model}
+                disabled={!formData.make}
+                onChange={(e) => {
+                  handleChange(e);
+                  setShowModelDropdown(true);
+                }}
+                onFocus={() => formData.make && setShowModelDropdown(true)}
+                onBlur={() => setTimeout(() => setShowModelDropdown(false), 200)}
+                required
+              />
+              {showModelDropdown && (
+                <div className="dropdown">
+                  {filteredModels.map((model) => (
+                    <div
+                      key={model}
+                      onMouseDown={() => handleSelectModel(model)}
+                      className="dropdown-item"
+                    >
+                      {model}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div className="form-row two-cols">
+            <select
+              name="part"
+              value={formData.part}
+              onChange={handleChange}
+              required
+            >
+              <option value="" disabled>Choose Part*</option>
+              {parts.map((part) => (
+                <option key={part} value={part}>
+                  {part}
+                </option>
+              ))}
+            </select>
+            <input
+              type="text"
+              name="vin"
+              value={formData.vin}
+              onChange={handleChange}
+              placeholder="VIN Number (Optional)"
+            />
+          </div>
+
+          <div className="form-row one-col">
+            <input
+              type="text"
+              name="remarks"
+              placeholder="Remarks (Optional)"
+              value={formData.remarks}
+              onChange={handleChange}
+            />
+          </div>
+
+          {/* SMS Consent Checkbox */}
+
+          <input type="hidden" name="browser" value={formData.browser} />
+          <button 
+            type="submit" 
+            className="submit-btn"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? (
+              <>
+                <span className="spinner"></span>
+                Submitting
+              </>
+            ) : (
+              "Submit"
+            )}
+          </button>
+        </form>
+      </div>
+    </>
   );
 };
 
