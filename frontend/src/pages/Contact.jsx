@@ -23,7 +23,7 @@ const Contact = () => {
           <ContactCard
             icon={phoneIcon}
             title="Phone"
-            content="+18333745813"
+            content="+00000000000"
             type="phone"
           />
 

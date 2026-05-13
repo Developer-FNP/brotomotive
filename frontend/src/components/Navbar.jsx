@@ -16,7 +16,7 @@ const Navbar = () => {
 
   const handleCallClick = () => {
     // Replace with your actual phone number
-    window.location.href = 'tel:+18333745813';
+    window.location.href = 'tel:+00000000000';
   };
 
   return (
@@ -38,9 +38,9 @@ const Navbar = () => {
         </div>
 
         <div className="nav-right">
-          <a href="tel:+18333745813" className="call-btn desktop-call-btn">
+          <a href="tel:+00000000000" className="call-btn desktop-call-btn">
   <FaPhoneAlt className="call-icon" />
-  +18333745813
+  +00000000000
 </a>
 
 
@@ -87,7 +87,7 @@ const Navbar = () => {
         
         <button className="call-btn" onClick={closeMenu}>
           <FaPhoneAlt className="call-icon" />
-          +18333745813
+          +00000000000
         </button>
       </div>
     </>
