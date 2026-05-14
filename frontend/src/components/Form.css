@@ -146,6 +146,30 @@ form:has(.submit-btn:disabled) .submit-btn {
   width: 100%;
 }
 
+.phone-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+.phone-input-wrapper .phone-prefix {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  background-color: #222;
+  color: white;
+  border-radius: 6px 0 0 6px;
+  font-size: 14px;
+  border-right: 1px solid #333;
+}
+
+.phone-input-wrapper input {
+  flex: 1;
+  min-width: 0;
+  border-radius: 0 6px 6px 0;
+}
+
 .dropdown {
   position: absolute;
   top: 100%;

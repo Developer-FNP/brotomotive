@@ -1,297 +1,21 @@
 import React, { useEffect, useState } from "react";
 import "./Form.css";
 
-const parts = [
-  "ABS Parts",
-  "Accessory Tool Box",
-  "Accessory, Work Light",
-  "Aftertreatment Control Module (ACM)",
-  "Air Compressor",
-  "Air Conditioner Compressor Clutch",
-  "Air Dryer",
-  "Air Hose",
-  "Air Spring",
-  "Air Tank",
-  "Air Valve",
-  "Alternator",
-  "APU (Auxiliary Power Unit)",
-  "APU, Condenser",
-  "APU, Condenser Fan",
-  "APU, Control Panel",
-  "APU, Engine",
-  "APU, Fuel Line",
-  "APU, Fuel Pump",
-  "APU, Generator",
-  "APU, Inverter",
-  "APU, Power Module",
-  "APU, Wiring Harness",
-  "Auxiliary Transmission",
-  "Axle Assembly",
-  "Axle Assembly, Front",
-  "Axle Housing (Front / Rear)",
-  "Axle Housing (Rear / Rear)",
-  "Axle Shaft",
-  "Battery",
-  "Battery Box",
-  "Battery Box Cover",
-  "Bearing",
-  "Bed Mat",
-  "Beverage Body",
-  "Box (Pickup Bed)",
-  "Bracket",
-  "Bracket, Fuel Tank",
-  "Brackets, Misc",
-  "Brake Actuator / Chamber",
-  "Brake Assembly",
-  "Brake Control Module (ABS)",
-  "Brake Drum",
-  "Brake Parts Misc.",
-  "Brake, Shoes",
-  "Brakes Backing Plate / Spider",
-  "Bumper Assembly, Rear",
-  "Bumper Bracket, Front",
-  "Cab Control Module CECU",
-  "Cab Jack",
-  "Cab Suspension",
-  "Caliper",
-  "Carrier and Cap (Front)",
-  "Carrier and Cap (Rear)",
-  "Carrier Set (Front and Rear)",
-  "Catalytic Converter",
-  "Chain Holder",
-  "Chassis Fairing",
-  "Collision Avoidance",
-  "Cranes / Booms",
-  "CutOff Assembly",
-  "Deckplate",
-  "DEF / Urea Tank",
-  "DEF Doser",
-  "DEF Misc Parts",
-  "DEF Sensors",
-  "DEF Tank",
-  "Differential Bearing Kit",
-  "Differential Case",
-  "Differential Seal",
-  "Differential Side Gear",
-  "Differential Thrust Washer",
-  "Differential, Misc. Part",
-  "Diff & Pd Clutch Collar",
-  "Diff & Pd Shift Fork",
-  "Diff (Inter-Axle) Component",
-  "Diff (Main) Parts & Assembly",
-  "Diff Adjuster",
-  "Diff Clutch Plate",
-  "Diff Planetary Gear",
-  "Diff Sun Gear",
-  "DOC",
-  "Door",
-  "Doser Pump",
-  "DPF Assembly Less Filters",
-  "DPF Covers",
-  "DPF Diesel Particulate Filter",
-  "DPF Filter",
-  "DPF Gasket",
-  "DPF Inlet",
-  "DPF Outlet",
-  "Drag Link",
-  "Drive Shaft",
-  "Drive Shaft, Front",
-  "Driveshaft Carrier Bearing",
-  "Driveshaft Tubing",
-  "Driveshaft, Misc Parts",
-  "Driveshaft, Slip Stub Shaft",
-  "Driveshaft, Slip Yoke",
-  "Driveshaft, Weld Yoke",
-  "Driveshaft, Yoke",
-  "Dumpbody",
-  "Dumpbody Components",
-  "Elbow",
-  "Electric Tarp Conversion",
-  "Electrical, Misc. Parts",
-  "Electronic Chassis Control Modules",
-  "Electronic DPF Control Module",
-  "Emissions Sensor",
-  "End Yoke",
-  "Equipment",
-  "Exhaust Assembly",
-  "Exhaust Bellows",
-  "Exhaust Clamp",
-  "Exhaust Guard",
-  "Exhaust Manifold",
-  "Exhaust Misc",
-  "Exhaust Reducer",
-  "Exhaust Y Pipe",
-  "Fastener",
-  "Feedbody",
-  "Fender (Accessory)",
-  "Fender Mount Hardware [kit]",
-  "Fifth Wheel",
-  "Fifth Wheel Kit",
-  "Fifth Wheel Part",
-  "Filter, DEF",
-  "Filter, Hydraulic",
-  "Fitting",
-  "Flatbed",
-  "Flex Pipe",
-  "Fluids",
-  "Fork",
-  "Frame",
-  "Frame Horn",
-  "Front Differential Assembly",
-  "Fuel Cap",
-  "Fuel Filler Door",
-  "Fuel Heater",
-  "Fuel Tank",
-  "Fuel Tank Sending Unit",
-  "Fuel Tank Strap",
-  "Gasket, Axle",
-  "Grainbody",
-  "Grainbody Components",
-  "Grille Guard",
-  "Grille Guard Installation parts",
-  "Hay Rack",
-  "Headache Rack (Cab Rack)",
-  "Heater, Auxiliary",
-  "Hitch Accessories",
-  "Hoist",
-  "Hooklift",
-  "Hooklift Components",
-  "Hub",
-  "Hub Cap",
-  "HVAC Unit",
-  "Hydraulic Controls",
-  "Hydraulic Cylinder",
-  "Hydraulic Fitting",
-  "Hydraulic Hose",
-  "Hydraulic Pump",
-  "Hydraulic Relief Valve",
-  "Hydraulic Tank / Reservoir",
-  "Ice Control",
-  "Ice Control Components",
-  "Jack",
-  "King Pin Set",
-  "Ladder",
-  "Landing Gear",
-  "Latches and Locks",
-  "Leaf Spring, Front",
-  "Leaf Spring, Helper",
-  "Leaf Spring, Rear",
-  "Liftgate",
-  "Liftgate Misc Parts",
-  "Master Cylinder",
-  "Mudflap",
-  "Mudflap Hanger",
-  "Muffler",
-  "Packer / Refuse Body",
-  "Pipe",
-  "Plow",
-  "Power Steering Control Valve",
-  "Power Steering Reservoir",
-  "PTO",
-  "Pwr Divider Drive Gear",
-  "Pwr Divider Driven Gear",
-  "Pwr Divider Idler Gear",
-  "Pwr Divider Thru Shaft",
-  "Ramp",
-  "Rear Differential Assembly",
-  "Receiver Hitch",
-  "Reefer Unit",
-  "Reeferbody",
-  "Refrigerator",
-  "Ring Gear and Pinion",
-  "Roll back",
-  "Roll Off Hoist",
-  "Running Board",
-  "Safety and Warning",
-  "SCR Catalyst",
-  "Seat Armrest",
-  "Seat Belt Assembly",
-  "Seat Cushion",
-  "Seat Misc Parts",
-  "Seat, Air Ride",
-  "Seat, Mechanical Suspension",
-  "Seat, non-Suspension",
-  "Shock Absorber",
-  "Side Marker Lamp, Rear",
-  "Slack Adjuster",
-  "Spindle / Knuckle, Front",
-  "Spring Pin",
-  "Spreader",
-  "Stack",
-  "Stability Sensor",
-  "Stabilizer Bar",
-  "Steering (Pitman) Arm",
-  "Steering Assist Cylinder",
-  "Steering Column",
-  "Steering Gear / Rack",
-  "Steering Gear Seal Kit",
-  "Steering Pump",
-  "Steering Pump Seal Kit",
-  "Steering Shaft",
-  "Steering Wheel",
-  "Step (Accessory)",
-  "Step (Frame, Fuel Tank, Fairing)",
-  "Suspension",
-  "Suspension Air Spring Pedestal",
-  "Suspension Bushing",
-  "Suspension Crossmember / K-Frame",
-  "Suspension Fastener",
-  "Suspension Spring Equalizer",
-  "Suspension Spring Hanger",
-  "Suspension, Misc. Part",
-  "Suspension, U-Bolt",
-  "Tag / Pusher Axle",
-  "Tag / Pusher Components",
-  "Tail Lamp",
-  "Tail Panel",
-  "Tailgate / Decklid",
-  "Tanker",
-  "Tarp",
-  "Tarp Components",
-  "Telematics",
-  "Tie Rod",
-  "Tire and Rim",
-  "Tires",
-  "Tool Box",
-  "Tools",
-  "Tools Cleaning",
-  "Torque Rod",
-  "Tow Hook",
-  "Trailer Axle",
-  "Trailer Connector",
-  "Trailer Corner Caps",
-  "Trailer Cossmember",
-  "Trailer Panel",
-  "Trailer Roofing",
-  "Trailer Side Chute",
-  "Trailer Step",
-  "Trailer Suspension",
-  "Trailer, Accessories",
-  "Trailer, Cargo Control",
-  "Trailer, Hitch",
-  "Trailer, Lighting",
-  "Trailer, Misc. Parts",
-  "Transfer Case Assembly",
-  "Transfer Case Motor",
-  "Truck Equipment, Tarp Motors",
-  "Turbo Pipe",
-  "Two Speed Motor",
-  "Universal Joint",
-  "Utilitybody",
-  "Vacuum Booster",
-  "Van Body",
-  "Vibrator",
-  "Wear Sleeve",
-  "Wet Kit",
-  "Wheel",
-  "Wheel Balancer",
-  "Wheel Bearing",
-  "Wheel Cover",
-  "Wheel Fastener",
-  "Wheel Stud",
-  "Yoke",
-  "Yoke, Rr Diff"
-].sort();
+const PART_OPTIONS = [
+  "Used Engine",
+  "Reman Engine",
+  "Rebuilt Engine",
+  "Used Transmission",
+  "Reman Transmission",
+  "Rebuilt Transmission",
+  "Core Engine",
+  "Core Transmission",
+  "Others",
+];
+
+const LEAD_INTAKE_URL =
+  "https://kindred-walrus-776.convex.site/api/v1/leads/intake";
+const LEAD_INTAKE_TOKEN = "wsk_L_hp2E0YV2z-wwJ0AMpIt-Do";
 
 const Form = () => {
   const [truckData, setTruckData] = useState({});
@@ -306,9 +30,10 @@ const Form = () => {
     make: "",
     model: "",
     part: "",
+    partOther: "",
     vin: "",
     browser: window.navigator.userAgent,
-    remarks: ""
+    remarks: "",
   });
 
   const [showMakeDropdown, setShowMakeDropdown] = useState(false);
@@ -326,34 +51,41 @@ const Form = () => {
   }, []);
 
   // Function to show notification
-  const showNotification = (message, type = 'info', duration = 3000) => {
+  const showNotification = (message, type = "info", duration = 3000) => {
     const id = Date.now();
     const newNotification = {
       id,
       message,
       type,
-      duration
+      duration,
     };
-    
-    setNotifications(prev => [...prev, newNotification]);
-    
+
+    setNotifications((prev) => [...prev, newNotification]);
+
     // Auto remove after duration
     setTimeout(() => {
       removeNotification(id);
     }, duration);
-    
+
     return id;
   };
 
   // Function to remove notification
   const removeNotification = (id) => {
-    setNotifications(prev => prev.filter(notification => notification.id !== id));
+    setNotifications((prev) =>
+      prev.filter((notification) => notification.id !== id),
+    );
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === "fullName" && /[^a-zA-Z\s]/.test(value)) return;
     if ((name === "phone" || name === "zip") && /[^0-9]/.test(value)) return;
+    // Clear partOther when the dropdown moves away from "Others"
+    if (name === "part" && value !== "Others") {
+      setFormData((prev) => ({ ...prev, part: value, partOther: "" }));
+      return;
+    }
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -369,47 +101,88 @@ const Form = () => {
 
   const allMakes = Object.keys(truckData).sort();
   const filteredMakes = allMakes.filter((m) =>
-    m.toLowerCase().includes(formData.make.toLowerCase())
+    m.toLowerCase().includes(formData.make.toLowerCase()),
   );
   const modelsForMake = truckData[formData.make] || [];
   const filteredModels = modelsForMake.filter((mod) =>
-    mod.toLowerCase().includes(formData.model.toLowerCase())
+    mod.toLowerCase().includes(formData.model.toLowerCase()),
   );
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrors({});
+
+    // Require freeform part text when "Others" is selected
+    if (formData.part === "Others" && !formData.partOther.trim()) {
+      showNotification("Please specify the part you need.", "error");
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || "";
-      const response = await fetch(`${apiUrl}/form`, {
+      const params = new URLSearchParams(window.location.search);
+
+      const body = {
+        name: formData.fullName,
+        email: formData.email?.trim().toLowerCase(),
+        phone: formData.phone
+          ? `+1 ${String(formData.phone).replace(/\D/g, "")}`
+          : undefined,
+        vehicleYear: formData.year,
+        vehicleMake: formData.make,
+        vehicleModel: formData.model,
+        partType:
+          formData.part === "Others"
+            ? formData.partOther.trim()
+            : formData.part,
+        zip: formData.zip || undefined,
+        vin: formData.vin || undefined,
+        remarks: formData.remarks || undefined,
+        source: "Website Lead",
+        company: "Brotomotive Parts",
+        disposition: "New Lead",
+        // Tracking
+        gclid: params.get("gclid") || undefined,
+        msclkid: params.get("msclkid") || undefined,
+        fbclid: params.get("fbclid") || undefined,
+        utmSource: params.get("utm_source") || undefined,
+        utmMedium: params.get("utm_medium") || undefined,
+        utmCampaign: params.get("utm_campaign") || undefined,
+        referrer: document.referrer || undefined,
+        landingPage: window.location.href,
+        browser: navigator.userAgent,
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        submissionTime: new Date().toISOString(),
+      };
+
+      const response = await fetch(LEAD_INTAKE_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        headers: {
+          Authorization: `Bearer ${LEAD_INTAKE_TOKEN}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
       });
 
-      const result = await response.json();
+      let result = {};
+      try {
+        result = await response.json();
+      } catch {
+        // Non-JSON response — ignore
+      }
 
       if (!response.ok) {
-        const errorMessages = {};
-        let errorMessage = "Please fix the following:\n\n";
-
-        if (result.errors) {
-          result.errors.forEach((error) => {
-            errorMessages[error.param] = error.msg;
-            errorMessage += `• ${error.msg}\n`;
-          });
-        }
-
-        setErrors(errorMessages);
-        // Show error notification
-        showNotification(errorMessage, 'error', 5000);
+        const message =
+          result.error ||
+          result.message ||
+          "Something went wrong. Please try again.";
+        showNotification(message, "error", 5000);
         return;
       }
 
       // Show success notification
-      showNotification("✅ Form submitted successfully!", 'success');
+      showNotification("✅ Form submitted successfully!", "success");
 
       // Reset form
       setFormData({
@@ -422,16 +195,16 @@ const Form = () => {
         make: "",
         model: "",
         part: "",
+        partOther: "",
         vin: "",
         browser: window.navigator.userAgent,
-        remarks: ""
+        remarks: "",
       });
       setSmsConsent(false);
-      
     } catch (err) {
       console.error("Submission failed:", err);
       // Show error notification
-      showNotification("❌ Something went wrong. Please try again.", 'error');
+      showNotification("❌ Something went wrong. Please try again.", "error");
     } finally {
       setIsSubmitting(false);
     }
@@ -447,22 +220,23 @@ const Form = () => {
       {/* Custom Notification Container - Top Right Corner */}
       <div className="notification-container">
         {notifications.map((notification) => (
-          <div 
-            key={notification.id} 
+          <div
+            key={notification.id}
             className={`notification notification-${notification.type}`}
           >
-            <div className="notification-content">
-              {notification.message}
-            </div>
-            <button 
+            <div className="notification-content">{notification.message}</div>
+            <button
               className="notification-close"
               onClick={() => removeNotification(notification.id)}
             >
               ✕
             </button>
-            <div className="notification-progress" style={{
-              animationDuration: `${notification.duration}ms`
-            }}></div>
+            <div
+              className="notification-progress"
+              style={{
+                animationDuration: `${notification.duration}ms`,
+              }}
+            ></div>
           </div>
         ))}
       </div>
@@ -488,14 +262,19 @@ const Form = () => {
               disabled={isSubmitting}
               required
             />
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Phone No.*"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-            />
+            <div className="phone-input-wrapper">
+              <span className="phone-prefix">+1</span>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone No.*"
+                value={formData.phone}
+                onChange={handleChange}
+                maxLength={10}
+                inputMode="numeric"
+                required
+              />
+            </div>
             <input
               type="email"
               name="email"
@@ -516,7 +295,12 @@ const Form = () => {
 
           <div className="form-section-title">Part Details</div>
           <div className="form-row three-cols">
-            <select name="year" value={formData.year} onChange={handleChange} required>
+            <select
+              name="year"
+              value={formData.year}
+              onChange={handleChange}
+              required
+            >
               <option value="">Year*</option>
               {Array.from({ length: currentYear - 1979 }, (_, i) => {
                 const year = currentYear - i;
@@ -571,7 +355,9 @@ const Form = () => {
                   setShowModelDropdown(true);
                 }}
                 onFocus={() => formData.make && setShowModelDropdown(true)}
-                onBlur={() => setTimeout(() => setShowModelDropdown(false), 200)}
+                onBlur={() =>
+                  setTimeout(() => setShowModelDropdown(false), 200)
+                }
                 required
               />
               {showModelDropdown && (
@@ -597,8 +383,10 @@ const Form = () => {
               onChange={handleChange}
               required
             >
-              <option value="" disabled>Choose Part*</option>
-              {parts.map((part) => (
+              <option value="" disabled>
+                Choose Part*
+              </option>
+              {PART_OPTIONS.map((part) => (
                 <option key={part} value={part}>
                   {part}
                 </option>
@@ -613,6 +401,19 @@ const Form = () => {
             />
           </div>
 
+          {formData.part === "Others" && (
+            <div className="form-row one-col">
+              <input
+                type="text"
+                name="partOther"
+                placeholder="Please specify the part you need*"
+                value={formData.partOther}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          )}
+
           <div className="form-row one-col">
             <input
               type="text"
@@ -626,11 +427,7 @@ const Form = () => {
           {/* SMS Consent Checkbox */}
 
           <input type="hidden" name="browser" value={formData.browser} />
-          <button 
-            type="submit" 
-            className="submit-btn"
-            disabled={isSubmitting}
-          >
+          <button type="submit" className="submit-btn" disabled={isSubmitting}>
             {isSubmitting ? (
               <>
                 <span className="spinner"></span>
